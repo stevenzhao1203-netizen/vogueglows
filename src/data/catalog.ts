@@ -8,12 +8,12 @@ export const site = {
 };
 
 export const categories = [
-  { slug: "style", name: "Style Edit", description: "Tailoring, knitwear, and shoes for the outfits you wear more than once.", image: "/images/vg-category-style.webp", tags: ["Tailoring", "Knitwear", "Footwear"] },
-  { slug: "womens-shoes", name: "Women's Shoes", description: "Shoes with notes on fit, material, and the return policy worth reading.", image: "/images/vg-category-shoes.webp", tags: ["Flats", "Slingbacks", "Everyday"] },
-  { slug: "beauty-wellness", name: "Beauty & Wellness", description: "Skincare, beauty tools, and the small habits that keep a routine simple.", image: "/images/vg-beauty-luxe-two.webp", tags: ["Skincare", "Makeup", "Wellness"] },
-  { slug: "audio", name: "Audio", description: "Headphones and earbuds for work, walking, and travel.", image: "/images/vg-category-audio.webp", tags: ["Earbuds", "Over-ear", "Listening"] },
-  { slug: "travel", name: "Travel", description: "Organizers and small pieces that stop a carry-on from becoming a jumble.", image: "/images/vg-category-travel-v2.webp", tags: ["Organizers", "Packing", "Weekend"] },
-  { slug: "everyday-home", name: "Everyday Home", description: "Kitchen and home pieces that earn their counter space.", image: "/images/vg-category-countertop-oven.webp", tags: ["Kitchen", "Countertop", "Small appliances"] }
+  { slug: "style", name: "Style Edit", trail: "Style", heroTitle: "The things that make getting dressed easier to repeat.", archiveTitle: "Style notes before you shop.", description: "Tailoring, knitwear, and shoes for the outfits you wear more than once.", image: "/images/vg-category-style.webp", tags: ["Tailoring", "Knitwear", "Footwear"] },
+  { slug: "womens-shoes", name: "Women's Shoes", trail: "Women's Shoes", heroTitle: "Shoes that make a whole day feel less complicated.", archiveTitle: "The women's shoes edit.", description: "Shoes with notes on fit, material, and the return policy worth reading.", image: "/images/vg-category-shoes.webp", tags: ["Flats", "Slingbacks", "Everyday"] },
+  { slug: "beauty-wellness", name: "Beauty & Wellness", trail: "Beauty & Wellness", heroTitle: "A routine that has room to breathe.", archiveTitle: "The beauty and wellness edit.", description: "Skincare, beauty tools, and the small habits that keep a routine simple.", image: "/images/vg-beauty-luxe-two.webp", tags: ["Skincare", "Makeup", "Wellness"] },
+  { slug: "audio", name: "Audio", trail: "Audio", heroTitle: "The headphones you reach for before you leave.", archiveTitle: "The audio edit.", description: "Headphones and earbuds for work, walking, and travel.", image: "/images/vg-category-audio.webp", tags: ["Earbuds", "Over-ear", "Listening"] },
+  { slug: "travel", name: "Travel", trail: "Travel", heroTitle: "Small pieces that keep a carry-on in order.", archiveTitle: "The travel edit.", description: "Organizers and small pieces that stop a carry-on from becoming a jumble.", image: "/images/vg-category-travel-v2.webp", tags: ["Organizers", "Packing", "Weekend"] },
+  { slug: "everyday-home", name: "Everyday Home", trail: "Everyday Home", heroTitle: "Objects that earn their space at home.", archiveTitle: "The everyday home edit.", description: "Kitchen and home pieces that earn their counter space.", image: "/images/vg-category-countertop-oven.webp", tags: ["Kitchen", "Countertop", "Small appliances"] }
 ];
 
 type Product = {
