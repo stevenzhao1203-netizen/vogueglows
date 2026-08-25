@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description: site.description,
   keywords: ["style buying guides", "women's shoe guides", "beauty routine guides", "travel buying guides", "everyday home guides"],
   alternates: { canonical: "https://vogueglows.com" },
+  icons: { icon: "/favicon.svg" },
   openGraph: {
     title: "VogueGlows | Practical Style & Lifestyle Guides",
     description: "Straightforward buying context for style, beauty, travel, audio, and everyday home.",

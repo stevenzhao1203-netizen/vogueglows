@@ -1,4 +1,5 @@
 import { ArrowLeft } from "lucide-react";
+import { BrandMark } from "@/components/brand-mark";
 
 const pages: Record<string, { title: string; body: string[] }> = {
   about: { title: "About VogueGlows", body: ["VogueGlows is an independent editorial guide for people who want a clearer starting point before buying in style and everyday life.", "We publish buying guides first: the practical questions, tradeoffs, and terms worth checking before a product is chosen. A merchant recommendation is added only after the listing and destination have been reviewed.", "We do not present category guides as hands-on product tests. Source-backed facts and editorial judgement are kept distinct, and commercial disclosures appear close to relevant links."] },
@@ -15,5 +16,5 @@ export default async function InfoPage({ params }: { params: Promise<{ slug: str
   const { slug } = await params;
   const page = pages[slug];
   if (!page) return null;
-  return <main><header className="simple-header"><a className="wordmark" href="/">Vogue<span>Glows</span></a><a href="/"><ArrowLeft size={15} /> Home</a></header><article className="info-page"><p>VogueGlows</p><h1>{page.title}</h1>{page.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</article><footer><a className="wordmark" href="/">Vogue<span>Glows</span></a><p>Copyright 2026 VogueGlows.</p><div><a href="/info/privacy">Privacy</a><a href="/info/terms">Terms</a><a href="/info/cookie-notice">Cookies</a></div></footer></main>;
+  return <main><header className="simple-header"><BrandMark /><a href="/"><ArrowLeft size={15} /> Home</a></header><article className="info-page"><p>VogueGlows</p><h1>{page.title}</h1>{page.body.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}</article><footer><BrandMark inverted /><p>Copyright 2026 VogueGlows.</p><div><a href="/info/privacy">Privacy</a><a href="/info/terms">Terms</a><a href="/info/cookie-notice">Cookies</a></div></footer></main>;
 }
