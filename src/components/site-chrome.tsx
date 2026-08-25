@@ -3,7 +3,7 @@ import { site } from "@/data/catalog";
 import { BrandMark } from "@/components/brand-mark";
 
 type SiteHeaderProps = {
-  active?: "home" | "trends" | "about";
+  active?: "home" | "journal" | "edit" | "about";
 };
 
 export function SiteHeader({ active }: SiteHeaderProps) {
@@ -11,7 +11,8 @@ export function SiteHeader({ active }: SiteHeaderProps) {
     <BrandMark />
     <nav aria-label="Primary navigation">
       <a className={active === "home" ? "site-nav-active" : undefined} href="/">Home</a>
-      <a className={active === "trends" ? "site-nav-active" : undefined} href="/trends">Trends</a>
+      <a className={active === "journal" ? "site-nav-active" : undefined} href="/journal">Journal</a>
+      <a className={active === "edit" ? "site-nav-active" : undefined} href="/trends">The Edit</a>
       <a className={active === "about" ? "site-nav-active" : undefined} href="/info/about">About</a>
     </nav>
     <a className="search" href="/search" aria-label="Search VogueGlows"><Search size={18} /></a>
@@ -23,7 +24,7 @@ export function SiteFooter() {
     <BrandMark inverted />
     <p>{site.affiliateNotice}</p>
     <div>
-      <a href="/trends">Trends</a><a href="/info/about">About</a><a href="/info/contact">Contact</a>
+      <a href="/journal">Journal</a><a href="/trends">The Edit</a><a href="/info/about">About</a><a href="/info/contact">Contact</a>
       <a href="/info/privacy">Privacy</a><a href="/info/terms">Terms</a><a href="/info/disclosure">Disclosure</a><a href="/info/cookie-notice">Cookies</a>
     </div>
   </footer>;

@@ -4,14 +4,14 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vogueglows.com"),
-  title: `${site.name} | Practical Style & Lifestyle Guides`,
+  title: `${site.name} | Style & Everyday Life Journal`,
   description: site.description,
-  keywords: ["style buying guides", "women's shoe guides", "beauty routine guides", "travel buying guides", "everyday home guides"],
+  keywords: ["style journal", "women's fashion notes", "beauty routine guides", "travel packing ideas", "everyday home edit"],
   alternates: { canonical: "https://vogueglows.com" },
   icons: { icon: "/favicon.svg" },
   openGraph: {
-    title: "VogueGlows | Practical Style & Lifestyle Guides",
-    description: "Straightforward buying context for style, beauty, travel, audio, and everyday home.",
+    title: "VogueGlows | Style & Everyday Life Journal",
+    description: "Notes and useful shop guides for style, beauty, travel, audio, and everyday home.",
     url: "https://vogueglows.com",
     siteName: "VogueGlows",
     type: "website"
