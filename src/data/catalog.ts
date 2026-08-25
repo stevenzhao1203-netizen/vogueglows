@@ -8,12 +8,12 @@ export const site = {
 };
 
 export const categories = [
-  { slug: "style", name: "Style Edit", description: "Tailoring, knitwear, and polished shoes considered for repeat wear.", image: "/images/vg-category-style.png", tags: ["Tailoring", "Knitwear", "Footwear"] },
-  { slug: "womens-shoes", name: "Women's Shoes", description: "Shoes considered through fit notes, use case, material, and return policy.", image: "/images/vg-category-shoes.png", tags: ["Flats", "Slingbacks", "Everyday"] },
-  { slug: "beauty-wellness", name: "Beauty & Wellness", description: "Simple routines, beauty tools, and wellness categories with clear buying context.", image: "/images/vg-beauty-luxe-two.png", tags: ["Skincare", "Makeup", "Wellness"] },
-  { slug: "audio", name: "Audio", description: "Over-ear listening essentials for home, work, and focused travel.", image: "/images/vg-category-audio.png", tags: ["Over-ear", "Headphones", "Listening"] },
-  { slug: "travel", name: "Travel", description: "Small travel pieces that keep documents, essentials, and packing decisions orderly.", image: "/images/vg-journal-travel.png", tags: ["Organizers", "Packing", "Weekend"] },
-  { slug: "everyday-home", name: "Everyday Home", description: "Useful countertop appliances and home additions with a practical purpose.", image: "/images/vg-category-countertop-oven.png", tags: ["Kitchen", "Countertop", "Small appliances"] }
+  { slug: "style", name: "Style Edit", description: "Tailoring, knitwear, and polished shoes considered for repeat wear.", image: "/images/vg-category-style.webp", tags: ["Tailoring", "Knitwear", "Footwear"] },
+  { slug: "womens-shoes", name: "Women's Shoes", description: "Shoes considered through fit notes, use case, material, and return policy.", image: "/images/vg-category-shoes.webp", tags: ["Flats", "Slingbacks", "Everyday"] },
+  { slug: "beauty-wellness", name: "Beauty & Wellness", description: "Simple routines, beauty tools, and wellness categories with clear buying context.", image: "/images/vg-beauty-luxe-two.webp", tags: ["Skincare", "Makeup", "Wellness"] },
+  { slug: "audio", name: "Audio", description: "Over-ear listening essentials for home, work, and focused travel.", image: "/images/vg-category-audio.webp", tags: ["Over-ear", "Headphones", "Listening"] },
+  { slug: "travel", name: "Travel", description: "Small travel pieces that keep documents, essentials, and packing decisions orderly.", image: "/images/vg-journal-travel.webp", tags: ["Organizers", "Packing", "Weekend"] },
+  { slug: "everyday-home", name: "Everyday Home", description: "Useful countertop appliances and home additions with a practical purpose.", image: "/images/vg-category-countertop-oven.webp", tags: ["Kitchen", "Countertop", "Small appliances"] }
 ];
 
 type Product = {

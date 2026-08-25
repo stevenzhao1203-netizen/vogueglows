@@ -1,6 +1,6 @@
 import { ArrowRight, Search } from "lucide-react";
 import { articles, categories, products } from "@/data/catalog";
-import { BrandMark } from "@/components/brand-mark";
+import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 
 type SearchPageProps = {
   searchParams: Promise<{ q?: string }>;
@@ -46,7 +46,7 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
     : searchIndex;
 
   return <main>
-    <header className="simple-header"><BrandMark /><a href="/">Home</a></header>
+    <SiteHeader />
     <section className="search-page">
       <p>Site search</p>
       <h1>Find a guide.</h1>
@@ -60,6 +60,6 @@ export default async function SearchPage({ searchParams }: SearchPageProps) {
         {results.map((result) => <a href={result.href} key={`${result.type}-${result.href}`}><p>{result.type}</p><h2>{result.title}</h2><span>{result.description}</span><b>Open <ArrowRight size={14} /></b></a>)}
       </div>
       {query && results.length === 0 && <div className="search-empty"><h2>No matching guide yet.</h2><span>Try a category name or a broader product type.</span></div>}
-    </section>
+    </section><SiteFooter />
   </main>;
 }

@@ -1,6 +1,6 @@
 import { Check } from "lucide-react";
 import { getProduct, products, site } from "@/data/catalog";
-import { BrandMark } from "@/components/brand-mark";
+import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 
 const comparisonNotes: Record<string, string> = {
   "tailored-blazer": "Start with the layers you will wear beneath it. Then compare shoulder width, sleeve length, lining, and fabric care against a jacket you already reach for.",
@@ -18,5 +18,5 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const product = getProduct(slug);
   if (!product) return null;
 
-  return <main><header className="simple-header"><BrandMark /><a href={`/categories/${product.category}`}>Back to category</a></header><article className="review"><img src={product.image} alt="" /><div><p>EDITORIAL BUYING GUIDE</p><h1>{product.name}</h1><h2>{product.summary}</h2><div className="disclosure">Affiliate disclosure: {site.affiliateNotice}</div></div></article><section className="review-body"><div><h2>Who this suits</h2><p>{product.forWho}</p><h2>What to check first</h2><p>{comparisonNotes[product.slug]}</p><p className="verification-note">Use the official retailer or manufacturer page to confirm current specifications, availability, and terms before buying.</p></div><div className="pros"><h2>What to compare</h2>{product.pros.map((item) => <p key={item}><Check size={16} />{item}</p>)}<h2>Keep in mind</h2>{product.cons.map((item) => <p key={item}><Check size={16} />{item}</p>)}</div></section><section className="alternatives"><p>ALTERNATIVES TO COMPARE</p><h2>{product.alternatives.join(" / ")}</h2><span>Useful directions to compare alongside this category, not a substitute for checking the current product listing.</span></section></main>;
+  return <main><SiteHeader /><article className="review"><img src={product.image} alt="" decoding="async" /><div><p>EDITORIAL BUYING GUIDE</p><h1>{product.name}</h1><h2>{product.summary}</h2><div className="disclosure">Affiliate disclosure: {site.affiliateNotice}</div></div></article><section className="review-body"><div><h2>Who this suits</h2><p>{product.forWho}</p><h2>What to check first</h2><p>{comparisonNotes[product.slug]}</p><p className="verification-note">Use the official retailer or manufacturer page to confirm current specifications, availability, and terms before buying.</p></div><div className="pros"><h2>What to compare</h2>{product.pros.map((item) => <p key={item}><Check size={16} />{item}</p>)}<h2>Keep in mind</h2>{product.cons.map((item) => <p key={item}><Check size={16} />{item}</p>)}</div></section><section className="alternatives"><p>ALTERNATIVES TO COMPARE</p><h2>{product.alternatives.join(" / ")}</h2><span>Useful directions to compare alongside this category, not a substitute for checking the current product listing.</span></section><SiteFooter /></main>;
 }
