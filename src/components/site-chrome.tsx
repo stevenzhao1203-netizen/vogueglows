@@ -23,9 +23,9 @@ export function SiteFooter() {
   return <footer>
     <BrandMark inverted />
     <p>{site.affiliateNotice}</p>
-    <div>
-      <a href="/journal">Journal</a><a href="/trends">The Edit</a><a href="/info/about">About</a><a href="/info/contact">Contact</a>
-      <a href="/info/privacy">Privacy</a><a href="/info/terms">Terms</a><a href="/info/disclosure">Disclosure</a><a href="/info/cookie-notice">Cookies</a>
+    <div className="footer-links">
+      <nav aria-label="Explore VogueGlows"><strong>Explore</strong><a href="/journal">Journal</a><a href="/trends">The Edit</a><a href="/info/about">About</a><a href="/info/contact">Contact</a></nav>
+      <nav aria-label="Legal information"><strong>Legal</strong><a href="/info/privacy">Privacy Policy</a><a href="/info/terms">Terms of Use</a><a href="/info/disclosure">Affiliate Disclosure</a><a href="/info/editorial-policy">Editorial Policy</a><a href="/info/cookie-notice">Cookie Notice</a></nav>
     </div>
   </footer>;
 }
