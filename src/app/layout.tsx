@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { site } from "@/data/catalog";
 import "./globals.css";
 
@@ -16,6 +16,11 @@ export const metadata: Metadata = {
     siteName: "VogueGlows",
     type: "website"
   }
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
