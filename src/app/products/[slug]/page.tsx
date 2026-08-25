@@ -4,6 +4,7 @@ import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 
 const comparisonNotes: Record<string, string> = {
   "tailored-blazer": "Put the blazer next to the layers you already wear. Then compare shoulder width, sleeve length, lining, and fabric care with a jacket you know fits well.",
+  "gym-people-workout-tee": "Check the current size chart, fabric composition, care instructions, side-slit placement, and return window. Compare the stated length with a tee you already like before deciding.",
   "low-heel-slingback": "Check the stated heel height, toe shape, strap adjustment, and return window. If you want a shoe for long days, make sure an indoor fit check is possible.",
   "barrier-first-moisturizer": "Read the current ingredients and directions, then think about texture, fragrance, and how the packaging will fit into your morning. The best everyday moisturizer is often the one that does not ask much of you.",
   "beakey-makeup-brushes": "Lay out the included brush shapes against the steps you actually use. A complete set earns its place when the face brushes, eye brushes, and sponges replace separate purchases instead of adding clutter.",
@@ -27,13 +28,13 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <SiteHeader active="edit" />
       <article className="shop-guide">
         <header className="shop-guide-header">
-          <p>The Edit / Shopping guide</p>
+          <p>The Edit / {hasMerchantLink ? "Product profile" : "Buying guide"}</p>
           <h1>{product.name}</h1>
           <span>{product.summary}</span>
         </header>
         <figure className="shop-guide-figure">
           <img src={product.image} alt="" decoding="async" />
-          <figcaption>Use the current retailer or manufacturer listing to confirm details before making a purchase.</figcaption>
+          <figcaption>{hasMerchantLink ? "Use the current retailer or manufacturer listing to confirm details before making a purchase." : "This is a buying guide, not a product test. Use a current retailer or manufacturer listing to confirm details before making a purchase."}</figcaption>
         </figure>
         <div className="shop-guide-commerce">
           <div className="disclosure">Affiliate disclosure: {site.affiliateNotice}</div>
