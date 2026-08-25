@@ -14,7 +14,7 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
 
   return (
     <main>
-      <SiteHeader active="edit" />
+      <SiteHeader active="edit" categorySlug={category.slug} />
       <section className="category-hero">
         <img src={category.image} alt="" decoding="async" />
         <div>

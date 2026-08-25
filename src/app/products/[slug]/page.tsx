@@ -1,5 +1,5 @@
 import { Check } from "lucide-react";
-import { getProduct, products, site } from "@/data/catalog";
+import { getCategory, getProduct, products, site } from "@/data/catalog";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 
 const comparisonNotes: Record<string, string> = {
@@ -21,14 +21,22 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const product = getProduct(slug);
   if (!product) return null;
 
+  const category = getCategory(product.category);
+  const relatedProducts = [
+    ...products.filter((item) => item.category === product.category && item.slug !== product.slug),
+    ...products.filter((item) => item.category !== product.category)
+  ].slice(0, 3);
   const isAffiliateLink = Boolean(product.affiliateUrl);
   const productUrl = product.affiliateUrl ?? product.sourceUrl;
   const hasProductLink = Boolean(productUrl && product.sourceUrl);
 
   return (
     <main>
-      <SiteHeader active="edit" />
+      <SiteHeader active="edit" categorySlug={product.category} />
       <article className="shop-guide">
+        <nav className="product-breadcrumb" aria-label="Breadcrumb">
+          <a href="/">Home</a><span>/</span><a href="/trends">Shop</a><span>/</span><a href={`/categories/${product.category}`}>{category?.name}</a>
+        </nav>
         <header className="shop-guide-header">
           <p>The Edit / Product profile</p>
           <h1>{product.name}</h1>
@@ -55,6 +63,11 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           <div><h2>Keep in mind</h2>{product.cons.map((item) => <p key={item}><Check size={16} />{item}</p>)}</div>
         </section>
         <section className="shop-guide-alternatives"><p>OTHER DIRECTIONS TO COMPARE</p><h2>{product.alternatives.join(" / ")}</h2><span>Different approaches worth considering before deciding. The current merchant listing remains the final source for details.</span></section>
+        <section className="product-continue">
+          <div><p>CONTINUE SHOPPING</p><h2>More pieces to compare.</h2></div>
+          <div className="product-continue-grid">{relatedProducts.map((item) => <a href={`/products/${item.slug}`} key={item.slug}><span>{getCategory(item.category)?.name}</span><h3>{item.name}</h3><p>{item.summary}</p></a>)}</div>
+          <a className="product-category-return" href={`/categories/${product.category}`}>View all {category?.name}</a>
+        </section>
       </article>
       <SiteFooter />
     </main>
