@@ -2,11 +2,11 @@ import { Check } from "lucide-react";
 import { getProduct, products, site } from "@/data/catalog";
 
 const comparisonNotes: Record<string, string> = {
-  "tailored-carryall": "Measure the laptop sleeve, water bottle, and the widest item you carry. Then compare the bag's opening, shoulder drop, and stated material care against the way you actually commute.",
+  "tailored-blazer": "Start with the layers you will wear beneath it. Then compare shoulder width, sleeve length, lining, and fabric care against a jacket you already reach for.",
   "low-heel-slingback": "Look at the stated heel height, toe shape, strap adjustability, and the retailer's return window. A shoe that is intended for long days should be easy to return after an indoor fit check.",
   "barrier-first-moisturizer": "Read the current ingredient list and directions on the official listing, then compare texture, fragrance, and packaging with the rest of your routine. A moisturizer does not need a dramatic claim to be a useful daily product.",
-  "open-ear-headphones": "Compare the fit style, microphone controls, charge case size, and device compatibility. Open-ear models make the most sense when awareness and calls matter more than full isolation.",
-  "weekend-carry-on": "Check the exterior dimensions including wheels and handles against the airline you use most. Then compare the layout, warranty, and return period rather than relying on a single capacity number.",
+  "over-ear-headphones": "Compare ear-cup depth, headband adjustment, physical controls, battery claims, and wired listening options. Comfort is best judged against the length of time you actually listen.",
+  "travel-essentials-case": "Compare the interior divisions with the small things you actually carry: cables, adapters, jewelry, medication, or a compact charger. Check the closure and exterior shape against the bag it needs to fit inside.",
   "countertop-oven": "Measure counter depth, overhead clearance, and the tray size you would use most. Look at the official manual for cleaning and safety guidance before choosing a model."
 };
 
