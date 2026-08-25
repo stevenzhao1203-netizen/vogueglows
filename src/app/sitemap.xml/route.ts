@@ -1,4 +1,4 @@
-import { articles, categories, products } from "@/data/catalog";
+import { articles, products } from "@/data/catalog";
 
 const baseUrl = "https://vogueglows.com";
 
@@ -6,7 +6,6 @@ export function GET() {
   const urls = [
     baseUrl,
     `${baseUrl}/journal`,
-    ...categories.map(({ slug }) => `${baseUrl}/categories/${slug}`),
     ...products.map(({ slug }) => `${baseUrl}/products/${slug}`),
     ...articles.map(({ slug }) => `${baseUrl}/journal/${slug}`),
   ];

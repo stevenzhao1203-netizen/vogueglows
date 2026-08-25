@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { site } from "@/data/catalog";
 import "./globals.css";
+import "./catalog.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://vogueglows.com"),

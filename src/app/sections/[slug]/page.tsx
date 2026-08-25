@@ -1,9 +1,9 @@
 import { redirect } from "next/navigation";
 
 const legacyDestinations: Record<string, string> = {
-  fashion: "/categories/clothing",
-  "home-living": "/categories/bags-accessories",
-  beauty: "/categories/beauty-skincare",
+  fashion: "/trends#clothing",
+  "home-living": "/trends#bags-accessories",
+  beauty: "/trends#beauty-skincare",
   "the-edit": "/trends"
 };
 

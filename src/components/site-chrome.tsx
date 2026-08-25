@@ -21,7 +21,7 @@ export function SiteHeader({ active, categorySlug }: SiteHeaderProps) {
     </header>
     <nav className="category-shortcuts" aria-label="Shop by category">
       <a className={!categorySlug && active === "edit" ? "category-shortcut-active" : undefined} href="/trends">All products</a>
-      {categories.map((category) => <a className={categorySlug === category.slug ? "category-shortcut-active" : undefined} href={`/categories/${category.slug}`} key={category.slug}>{category.name}</a>)}
+      {categories.map((category) => <a className={categorySlug === category.slug ? "category-shortcut-active" : undefined} href={`/trends#${category.slug}`} key={category.slug}>{category.name}</a>)}
     </nav>
   </>;
 }

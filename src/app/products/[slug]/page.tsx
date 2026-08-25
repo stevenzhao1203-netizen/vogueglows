@@ -35,7 +35,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
       <SiteHeader active="edit" categorySlug={product.category} />
       <article className="shop-guide">
         <nav className="product-breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a><span>/</span><a href="/trends">Shop</a><span>/</span><a href={`/categories/${product.category}`}>{category?.name}</a>
+          <a href="/">Home</a><span>/</span><a href="/trends">Shop</a><span>/</span><span>{product.name}</span>
         </nav>
         <header className="shop-guide-header">
           <p>The Edit / Product profile</p>
@@ -66,7 +66,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <section className="product-continue">
           <div><p>CONTINUE SHOPPING</p><h2>More pieces to compare.</h2></div>
           <div className="product-continue-grid">{relatedProducts.map((item) => <a href={`/products/${item.slug}`} key={item.slug}><span>{getCategory(item.category)?.name}</span><h3>{item.name}</h3><p>{item.summary}</p></a>)}</div>
-          <a className="product-category-return" href={`/categories/${product.category}`}>View all {category?.name}</a>
+          <a className="product-category-return" href={`/trends#${product.category}`}>View all {category?.name}</a>
         </section>
       </article>
       <SiteFooter />
