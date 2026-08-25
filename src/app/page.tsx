@@ -1,16 +1,22 @@
 import { ArrowRight } from "lucide-react";
-import { articles, categories, products } from "@/data/catalog";
+import { getCategory, products } from "@/data/catalog";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 
 export default function HomePage() {
+  const featuredProducts = products.filter((product) => product.slug !== "madewell-essential-bucket-tote");
+
   return <main>
-    <div className="trend-bar">An independent journal for style and everyday life</div>
+    <div className="trend-bar">Independent notes on style, beauty, and useful things</div>
     <SiteHeader active="home" />
-    <section className="home-hero"><div><p>VogueGlows Journal</p><h1>Clothes, bags, beauty, and the pieces that stay in rotation.</h1><span>Personal notes and carefully sourced product profiles for getting dressed, caring for skin, and traveling with less guesswork.</span><div className="home-hero-actions"><a href="/trends">Shop the edit <ArrowRight size={16} /></a><a href="/journal">Read the journal</a></div></div><img src="/images/vg-hero-still-life.webp" alt="Sunlit gallery still life with a black tote and ivory linen" fetchPriority="high" decoding="async" /></section>
-    <section className="featured-stories" id="featured"><div className="section-heading"><p>From the journal</p><h2>Three notes to begin with.</h2><span>For a purchase, a packing list, or the next outfit decision.</span></div><div className="featured-grid">{articles.map((article) => <a className="featured-card" href={`/journal/${article.slug}`} key={article.slug}><img src={article.image} alt="" loading="lazy" decoding="async" /><p>{article.category}</p><h3>{article.title}</h3><span>{article.excerpt}</span><b>Read article <ArrowRight size={14} /></b></a>)}</div></section>
-    <section className="editor-note"><div><p>A useful edit</p><h2>The details that make an ordinary purchase easier.</h2></div><div><p>A blazer has to work with the layers already in the wardrobe. A shoulder bag has to hold the things carried every day. A moisturizer has to fit the rest of a routine. Those practical details are where each edit begins.</p><a className="text-link" href="/info/about">How VogueGlows works <ArrowRight size={15} /></a></div></section>
-    <section className="category-rail"><div className="rail-title"><h2>Browse by what you are looking for.</h2><a href="/trends">See all shopping notes <ArrowRight size={16} /></a></div><div className="category-grid category-grid-all">{categories.map((category) => <a href={`/trends#${category.slug}`} className="category-tile" key={category.slug}><img src={category.image} alt="" loading="lazy" decoding="async" /><h3>{category.name}</h3><p>{category.description}</p></a>)}</div></section>
-    <section className="product-section" id="latest"><div className="section-heading"><p>The Edit</p><h2>Current product profiles, checked at the source.</h2><span>Each profile now leads to a real US brand or retailer page. Affiliate tracking is disclosed only where it is actually used.</span></div><div className="product-grid product-grid-text">{products.map((product) => <article className="product-card" key={product.slug}><p>{categories.find((category) => category.slug === product.category)?.name}</p><h3><a href={`/products/${product.slug}`}>{product.name}</a></h3><span>{product.summary}</span><a className="text-link" href={`/products/${product.slug}`}>Read profile <ArrowRight size={15} /></a></article>)}</div><div className="edit-link"><a href="/trends">Browse The Edit <ArrowRight size={15} /></a></div></section>
+    <section className="story-home-hero">
+      <img src="/images/vg-hero-still-life.webp" alt="Black leather tote, ivory linen, and small accessories in a sunlit interior" fetchPriority="high" decoding="async" />
+      <div><p>VogueGlows</p><h1>Women&apos;s style, beauty, and travel finds.</h1><span>Clear shopping notes about pieces worth considering, with links to the current brand or retailer page.</span><a href="#stories">Explore the stories <ArrowRight size={16} /></a></div>
+    </section>
+    <section className="story-index" id="stories">
+      <div className="story-index-heading"><p>Featured stories</p><h2>What I&apos;m looking at now.</h2></div>
+      <div className="story-grid">{featuredProducts.map((product) => <a className="story-card" href={`/posts/${product.slug}`} key={product.slug}><img src={product.image} alt="" loading="lazy" decoding="async" /><p>{getCategory(product.category)?.name}</p><h3>{product.name}</h3><span>{product.summary}</span><b>Read story <ArrowRight size={14} /></b></a>)}</div>
+    </section>
+    <section className="story-about"><p>About VogueGlows</p><h2>Shopping notes built around the details that matter.</h2><span>Fit, materials, dimensions, ingredients, and return terms come before hype. Product facts are linked back to the brand or retailer so you can check the current listing before deciding.</span><a href="/info/about">Read more about the site <ArrowRight size={14} /></a></section>
     <SiteFooter />
   </main>;
 }

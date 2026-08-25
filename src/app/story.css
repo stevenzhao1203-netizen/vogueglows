@@ -1,0 +1,269 @@
+.site-header-simple {
+  display: flex;
+  grid-template-columns: 1fr auto;
+  min-height: 78px;
+  justify-content: space-between;
+}
+
+.site-header-simple nav {
+  justify-content: flex-end;
+}
+
+.story-home-hero {
+  position: relative;
+  display: flex;
+  min-height: min(680px, calc(100svh - 150px));
+  align-items: flex-end;
+  overflow: hidden;
+  background: var(--deep);
+  color: #fff;
+}
+
+.story-home-hero::after {
+  position: absolute;
+  inset: 0;
+  background: rgba(20, 27, 24, .4);
+  content: "";
+}
+
+.story-home-hero > img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.story-home-hero > div {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-width: 0;
+  max-width: 760px;
+  padding: 8vw 6vw;
+}
+
+.story-home-hero p,
+.story-index-heading p,
+.story-card p,
+.story-about > p {
+  margin-bottom: 12px;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.story-home-hero h1 {
+  margin-bottom: 18px;
+  font-size: clamp(40px, 5vw, 70px);
+  line-height: 1.12;
+}
+
+.story-home-hero span {
+  display: block;
+  max-width: 590px;
+  color: rgba(255, 255, 255, .88);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.story-home-hero a,
+.story-about a {
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 24px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid currentColor;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.story-index {
+  max-width: 1320px;
+  margin: auto;
+  padding: 82px 4vw 100px;
+}
+
+.story-index-heading {
+  min-width: 0;
+  margin-bottom: 34px;
+}
+
+.story-index-heading h2 {
+  max-width: 100%;
+  margin: 0;
+  font-size: clamp(30px, 3.5vw, 48px);
+  overflow-wrap: break-word;
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 48px 26px;
+}
+
+.story-card {
+  min-width: 0;
+}
+
+.story-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform .35s ease;
+}
+
+.story-card p {
+  margin-top: 16px;
+  color: var(--deep);
+}
+
+.story-card h3 {
+  margin-bottom: 9px;
+  font-size: 22px;
+  line-height: 1.35;
+}
+
+.story-card > span {
+  display: block;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+.story-card b {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  margin-top: 16px;
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.story-about {
+  padding: 72px max(6vw, calc((100vw - 1120px) / 2));
+  background: var(--sage);
+}
+
+.story-about h2 {
+  max-width: 690px;
+  margin-bottom: 17px;
+  font-size: clamp(28px, 3.2vw, 44px);
+  line-height: 1.3;
+}
+
+.story-about > span {
+  display: block;
+  max-width: 680px;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.product-story {
+  padding-top: 68px;
+}
+
+.product-story .shop-guide-alternatives {
+  padding: 36px;
+  background: var(--sage);
+  text-align: left;
+}
+
+.product-story .shop-guide-alternatives h2 {
+  font-size: clamp(26px, 3vw, 36px) !important;
+}
+
+@media (hover: hover) {
+  .story-card:hover img {
+    transform: scale(1.018);
+  }
+}
+
+@media (max-width: 900px) {
+  .story-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .trend-bar {
+    height: 25px;
+  }
+
+  .site-header.site-header-simple {
+    display: flex !important;
+    min-height: 70px !important;
+    align-items: center;
+    justify-content: flex-start;
+  }
+
+  .site-header.site-header-simple nav {
+    display: none;
+  }
+
+  .story-home-hero {
+    min-height: 560px;
+  }
+
+  .story-home-hero > div {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 54px 22px !important;
+  }
+
+  .story-home-hero h1 {
+    font-size: 39px;
+  }
+
+  .story-home-hero > div > span {
+    width: 100%;
+    max-width: 100% !important;
+    font-size: 14px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .story-index {
+    padding: 58px 22px 72px;
+  }
+
+  .story-index .story-index-heading h2 {
+    width: 100%;
+    max-width: 100% !important;
+    font-size: 28px;
+    line-height: 1.25;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .story-grid {
+    grid-template-columns: 1fr;
+    gap: 42px;
+  }
+
+  .story-card h3 {
+    font-size: 21px;
+  }
+
+  .story-about {
+    padding: 56px 22px;
+  }
+
+  .product-story {
+    padding-top: 48px;
+  }
+
+  .product-story .shop-guide-alternatives {
+    padding: 28px 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .story-card img {
+    transition: none;
+  }
+}

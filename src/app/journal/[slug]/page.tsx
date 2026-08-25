@@ -41,7 +41,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         <section className="related">
           <p>FROM THE EDIT</p>
           <h2>Related shopping notes</h2>
-          {relatedProducts.map((product) => <a href={`/products/${product.slug}`} key={product.slug}>{product.name}</a>)}
+          {relatedProducts.map((product) => <a href={`/posts/${product.slug}`} key={product.slug}>{product.name}</a>)}
         </section>
       )}
       <SiteFooter />

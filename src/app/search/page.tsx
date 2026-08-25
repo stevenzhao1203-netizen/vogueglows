@@ -19,14 +19,14 @@ const searchIndex: SearchResult[] = [
     type: "Category" as const,
     title: category.name,
     description: category.description,
-    href: `/trends#${category.slug}`,
+    href: "/#stories",
     keywords: `${category.name} ${category.description} ${category.tags.join(" ")}`
   })),
   ...products.map((product) => ({
     type: "Product profile" as const,
     title: product.name,
     description: product.summary,
-    href: `/products/${product.slug}`,
+    href: `/posts/${product.slug}`,
     keywords: `${product.name} ${product.summary} ${product.forWho} ${product.alternatives.join(" ")}`
   })),
   ...articles.map((article) => ({

@@ -32,13 +32,10 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   return (
     <main>
-      <SiteHeader active="edit" categorySlug={product.category} />
-      <article className="shop-guide">
-        <nav className="product-breadcrumb" aria-label="Breadcrumb">
-          <a href="/">Home</a><span>/</span><a href="/trends">Shop</a><span>/</span><span>{product.name}</span>
-        </nav>
+      <SiteHeader />
+      <article className="shop-guide product-story">
         <header className="shop-guide-header">
-          <p>The Edit / Product profile</p>
+          <p>{category?.name} / Shopping story</p>
           <h1>{product.name}</h1>
           <span>{product.summary}</span>
         </header>
@@ -50,12 +47,6 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
           <div className="disclosure">{isAffiliateLink ? `Affiliate disclosure: ${site.affiliateNotice}` : "Link note: the product button below goes directly to the brand or retailer and is not currently an affiliate link."}</div>
           {hasProductLink && <div className="purchase-panel"><a href={productUrl ?? "#"} target="_blank" rel={isAffiliateLink ? "sponsored nofollow noopener" : "noopener noreferrer"}>{isAffiliateLink ? "View current price" : "View product details"}</a><span>Source: <a href={product.sourceUrl ?? "#"} target="_blank" rel="noopener noreferrer">{product.sourceName}</a>. Price, availability, color, and specifications can change.</span></div>}
         </div>
-        <nav className="toc shop-guide-toc" aria-label="In this guide">
-          <p>In this guide</p>
-          <a href="#who-it-suits">1. Who it may suit</a>
-          <a href="#what-to-check">2. What to check before buying</a>
-          <a href="#compare-options">3. What to compare</a>
-        </nav>
         <section id="who-it-suits"><h2>Who it may suit</h2><p>{product.forWho}</p></section>
         <section id="what-to-check"><h2>What to check before buying</h2><p>{comparisonNotes[product.slug]}</p><p className="verification-note">A retailer or manufacturer page is the final source for current specifications, availability, and terms.</p></section>
         <section id="compare-options" className="shop-guide-compare">
@@ -65,8 +56,8 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         <section className="shop-guide-alternatives"><p>OTHER DIRECTIONS TO COMPARE</p><h2>{product.alternatives.join(" / ")}</h2><span>Different approaches worth considering before deciding. The current merchant listing remains the final source for details.</span></section>
         <section className="product-continue">
           <div><p>CONTINUE SHOPPING</p><h2>More pieces to compare.</h2></div>
-          <div className="product-continue-grid">{relatedProducts.map((item) => <a href={`/products/${item.slug}`} key={item.slug}><span>{getCategory(item.category)?.name}</span><h3>{item.name}</h3><p>{item.summary}</p></a>)}</div>
-          <a className="product-category-return" href={`/trends#${product.category}`}>View all {category?.name}</a>
+          <div className="product-continue-grid">{relatedProducts.map((item) => <a href={`/posts/${item.slug}`} key={item.slug}><span>{getCategory(item.category)?.name}</span><h3>{item.name}</h3><p>{item.summary}</p></a>)}</div>
+          <a className="product-category-return" href="/#stories">Back to all stories</a>
         </section>
       </article>
       <SiteFooter />

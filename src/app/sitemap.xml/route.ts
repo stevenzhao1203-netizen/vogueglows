@@ -6,7 +6,7 @@ export function GET() {
   const urls = [
     baseUrl,
     `${baseUrl}/journal`,
-    ...products.map(({ slug }) => `${baseUrl}/products/${slug}`),
+    ...products.map(({ slug }) => `${baseUrl}/posts/${slug}`),
     ...articles.map(({ slug }) => `${baseUrl}/journal/${slug}`),
   ];
   const body = `<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">${urls.map((url) => `<url><loc>${url}</loc></url>`).join("")}</urlset>`;
