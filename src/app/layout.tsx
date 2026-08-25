@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   icons: { icon: "/favicon.svg" },
   openGraph: {
     title: "VogueGlows | Style & Everyday Life Journal",
-    description: "Notes and useful shop guides for style, beauty, travel, audio, and everyday home.",
+    description: "Notes and shop guides for style, beauty, travel, audio, and everyday home.",
     url: "https://vogueglows.com",
     siteName: "VogueGlows",
     type: "website"
