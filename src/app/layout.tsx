@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://vogueglows.com"),
   title: `${site.name} | Style & Everyday Life Journal`,
   description: site.description,
-  keywords: ["style journal", "women's fashion notes", "beauty routine guides", "travel packing ideas", "everyday home edit"],
+  keywords: ["women's fashion journal", "women's clothing guides", "handbag shopping notes", "skincare product profiles", "women's travel bags"],
   alternates: { canonical: "https://vogueglows.com" },
   icons: { icon: "/favicon.svg" },
   openGraph: {
     title: "VogueGlows | Style & Everyday Life Journal",
-    description: "Notes and shop guides for style, beauty, travel, audio, and everyday home.",
+    description: "Personal notes and sourced product profiles for women's clothing, bags, shoes, beauty, and travel style.",
     url: "https://vogueglows.com",
     siteName: "VogueGlows",
     type: "website"

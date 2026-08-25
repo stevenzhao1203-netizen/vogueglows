@@ -3,15 +3,15 @@ import { getProduct, products, site } from "@/data/catalog";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 
 const comparisonNotes: Record<string, string> = {
-  "tailored-blazer": "Put the blazer next to the layers you already wear. Then compare shoulder width, sleeve length, lining, and fabric care with a jacket you know fits well.",
+  "everlane-oversized-blazer": "Compare the garment measurements with a blazer you already like, especially through the shoulders, upper arms, and overall length. The official listing describes an oversized body with a closer cut through the arms.",
   "gym-people-workout-tee": "Check the current size chart, fabric composition, care instructions, side-slit placement, and return window. Compare the stated length with a tee you already like before deciding.",
-  "low-heel-slingback": "Check the stated heel height, toe shape, strap adjustment, and return window. If you want a shoe for long days, make sure an indoor fit check is possible.",
-  "barrier-first-moisturizer": "Read the current ingredients and directions, then think about texture, fragrance, and how the packaging will fit into your morning. The best everyday moisturizer is often the one that does not ask much of you.",
+  "coach-brooklyn-shoulder-bag-28": "Lay out the things you carry most often, then compare that group with the listed dimensions, handle drop, open interior, and magnetic closure. The shape matters less than whether your daily essentials fit without stacking awkwardly.",
+  "madewell-essential-bucket-tote": "Measure a current work or everyday bag before comparing the listed height, width, depth, and handle drop. If you carry a laptop, check the device itself rather than relying only on the screen size in the listing.",
+  "sam-edelman-bianka-slingback": "Check the heel height, pointed toe, buckle adjustment, available width, and return terms. Try the shoes indoors on the surface and at the time of day that best reflects how you will wear them.",
+  "cerave-daily-moisturizing-lotion": "Read the current ingredient list and directions on the official page and the packaging you receive. Introduce it in a way that makes individual skin response easier to notice, especially if your routine already contains active ingredients.",
   "beakey-makeup-brushes": "Lay out the included brush shapes against the steps you actually use. A complete set earns its place when the face brushes, eye brushes, and sponges replace separate purchases instead of adding clutter.",
-  "over-ear-headphones": "Compare ear-cup depth, headband adjustment, physical controls, battery claims, and wired listening. Comfort is best judged against the amount of time you really listen.",
-  "earfun-air-pro-4": "Compare the stated noise control, microphone, codec, and playtime features with the phone and services you already use. Fit matters just as much: try the supplied ear tips and use the retailer's return window if needed.",
-  "travel-essentials-case": "Picture the handful of items you really carry: cables, adapters, medication, jewelry, or a compact charger. Then compare the pockets, closure, and shape with the bag it needs to live inside.",
-  "countertop-oven": "Measure counter depth, clearance above the oven, and the tray size you would use most. Read the manual for cleaning and safety before deciding."
+  "calpak-luka-duffel": "Compare the listed dimensions with your airline's current personal-item or carry-on rules and with the luggage you already use. A shoe compartment and many pockets are useful only if the filled bag remains comfortable to carry.",
+  "coach-essential-card-case": "Count the cards you actually carry and decide whether cash, receipts, or coins need a place too. A five-slot case works best when you want to keep the contents deliberately small."
 };
 
 export const generateStaticParams = () => products.map(({ slug }) => ({ slug }));
@@ -21,24 +21,26 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const product = getProduct(slug);
   if (!product) return null;
 
-  const hasMerchantLink = Boolean(product.affiliateUrl && product.sourceUrl);
+  const isAffiliateLink = Boolean(product.affiliateUrl);
+  const productUrl = product.affiliateUrl ?? product.sourceUrl;
+  const hasProductLink = Boolean(productUrl && product.sourceUrl);
 
   return (
     <main>
       <SiteHeader active="edit" />
       <article className="shop-guide">
         <header className="shop-guide-header">
-          <p>The Edit / {hasMerchantLink ? "Product profile" : "Buying guide"}</p>
+          <p>The Edit / Product profile</p>
           <h1>{product.name}</h1>
           <span>{product.summary}</span>
         </header>
         <figure className="shop-guide-figure">
           <img src={product.image} alt="" decoding="async" />
-          <figcaption>{hasMerchantLink ? "Use the current retailer or manufacturer listing to confirm details before making a purchase." : "This is a buying guide, not a product test. Use a current retailer or manufacturer listing to confirm details before making a purchase."}</figcaption>
+          <figcaption>Editorial image, not manufacturer product photography. Use the linked brand or retailer page to confirm the current design, color, and details.</figcaption>
         </figure>
         <div className="shop-guide-commerce">
-          <div className="disclosure">Affiliate disclosure: {site.affiliateNotice}</div>
-          {hasMerchantLink && <div className="purchase-panel"><p>LISTING LAST CHECKED: {product.lastVerified?.toUpperCase()}</p><a href={product.affiliateUrl ?? "#"} target="_blank" rel="sponsored nofollow noopener">View current price</a><span>Source: <a href={product.sourceUrl ?? "#"} target="_blank" rel="noopener noreferrer">{product.sourceName}</a>. Price, availability, and specifications can change.</span></div>}
+          <div className="disclosure">{isAffiliateLink ? `Affiliate disclosure: ${site.affiliateNotice}` : "Link note: the product button below goes directly to the brand or retailer and is not currently an affiliate link."}</div>
+          {hasProductLink && <div className="purchase-panel"><p>PRODUCT PAGE LAST CHECKED: {product.lastVerified?.toUpperCase()}</p><a href={productUrl ?? "#"} target="_blank" rel={isAffiliateLink ? "sponsored nofollow noopener" : "noopener noreferrer"}>{isAffiliateLink ? "View current price" : "View product details"}</a><span>Source: <a href={product.sourceUrl ?? "#"} target="_blank" rel="noopener noreferrer">{product.sourceName}</a>. Price, availability, color, and specifications can change.</span></div>}
         </div>
         <nav className="toc shop-guide-toc" aria-label="In this guide">
           <p>In this guide</p>

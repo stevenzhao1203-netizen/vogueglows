@@ -46,10 +46,10 @@ export default async function CategoryPage({ params }: { params: Promise<{ slug:
           {picks.map((product, index) => (
             <article className="product-card" key={product.slug}>
               <i aria-hidden="true">0{index + 1}</i>
-              <p>SHOP GUIDE</p>
+              <p>PRODUCT PROFILE</p>
               <h3>{product.name}</h3>
               <span>{product.summary}</span>
-              <a className="text-link" href={`/products/${product.slug}`}>Open guide <ArrowRight size={15} /></a>
+              <a className="text-link" href={`/products/${product.slug}`}>Read profile <ArrowRight size={15} /></a>
             </article>
           ))}
         </div>

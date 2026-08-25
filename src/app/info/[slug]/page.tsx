@@ -5,9 +5,9 @@ type InfoPage = { eyebrow: string; title: string; intro: string; sections: InfoS
 
 const pages: Record<string, InfoPage> = {
   about: { eyebrow: "VOGUEGLOWS", title: "About VogueGlows", intro: "A journal for the decisions that sit between wanting something and bringing it home.", sections: [
-    { heading: "What we cover", paragraphs: ["The subjects are ordinary: a blazer that needs to work with the clothes already in a wardrobe, a travel case that keeps the small things together, or an appliance that needs to earn its counter space."] },
+    { heading: "What we cover", paragraphs: ["The focus is women's fashion and the things around it: clothing, shoes, handbags, small accessories, skincare, makeup tools, and travel pieces that need to work in real routines."] },
     { heading: "How the site is organised", paragraphs: ["The Journal holds the longer notes behind those decisions. The Edit is more direct: a place to compare fit, material, care, return terms, and the everyday details a product page can make easy to miss."] },
-    { heading: "What a guide is", paragraphs: ["A guide is not presented as a hands-on review. Product facts are checked against a manufacturer or retailer page, and an affiliate disclosure appears close to any qualifying link. The final details, including price and availability, always belong to the current listing."] }
+    { heading: "What a product profile is", paragraphs: ["A product profile is not presented as a hands-on review. Each featured item links to a current manufacturer or retailer page, and an affiliate disclosure appears close to any qualifying link. The final details, including price and availability, always belong to the current listing."] }
   ] },
   contact: { eyebrow: "CONTACT", title: "Contact VogueGlows", intro: "For editorial questions, correction requests, or partnership enquiries, email admin@vogueglows.com.", sections: [
     { heading: "A useful message", paragraphs: ["For a correction, include the page URL, the statement you are querying, and a reliable source where possible. This makes it easier to review the point properly."] },
