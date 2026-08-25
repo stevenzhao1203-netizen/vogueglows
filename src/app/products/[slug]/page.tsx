@@ -20,5 +20,40 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const product = getProduct(slug);
   if (!product) return null;
 
-  return <main><SiteHeader active="edit" /><article className="review"><img src={product.image} alt={`${product.name} editorial still life`} decoding="async" /><div><p>THE EDIT / SHOP GUIDE</p><h1>{product.name}</h1><h2>{product.summary}</h2><div className="disclosure">Affiliate disclosure: {site.affiliateNotice}</div>{product.affiliateUrl && <div className="purchase-panel"><p>LISTING LAST CHECKED: {product.lastVerified?.toUpperCase()}</p><a href={product.affiliateUrl} target="_blank" rel="sponsored nofollow noopener">View current price</a><span>Source: <a href={product.sourceUrl ?? "#"} target="_blank" rel="noopener noreferrer">{product.sourceName}</a>. Price, availability, and specifications can change.</span></div>}</div></article><section className="review-body"><div><h2>Who this suits</h2><p>{product.forWho}</p><h2>What to check first</h2><p>{comparisonNotes[product.slug]}</p><p className="verification-note">Use the official retailer or manufacturer page to confirm current specifications, availability, and terms before buying.</p></div><div className="pros"><h2>What to compare</h2>{product.pros.map((item) => <p key={item}><Check size={16} />{item}</p>)}<h2>Keep in mind</h2>{product.cons.map((item) => <p key={item}><Check size={16} />{item}</p>)}</div></section><section className="alternatives"><p>ALTERNATIVES TO COMPARE</p><h2>{product.alternatives.join(" / ")}</h2><span>Other directions to look at before deciding; the current product listing remains the final source for details.</span></section><SiteFooter /></main>;
+  const hasMerchantLink = Boolean(product.affiliateUrl && product.sourceUrl);
+
+  return (
+    <main>
+      <SiteHeader active="edit" />
+      <article className="shop-guide">
+        <header className="shop-guide-header">
+          <p>The Edit / Shopping guide</p>
+          <h1>{product.name}</h1>
+          <span>{product.summary}</span>
+        </header>
+        <figure className="shop-guide-figure">
+          <img src={product.image} alt="" decoding="async" />
+          <figcaption>Use the current retailer or manufacturer listing to confirm details before making a purchase.</figcaption>
+        </figure>
+        <div className="shop-guide-commerce">
+          <div className="disclosure">Affiliate disclosure: {site.affiliateNotice}</div>
+          {hasMerchantLink && <div className="purchase-panel"><p>LISTING LAST CHECKED: {product.lastVerified?.toUpperCase()}</p><a href={product.affiliateUrl ?? "#"} target="_blank" rel="sponsored nofollow noopener">View current price</a><span>Source: <a href={product.sourceUrl ?? "#"} target="_blank" rel="noopener noreferrer">{product.sourceName}</a>. Price, availability, and specifications can change.</span></div>}
+        </div>
+        <nav className="toc shop-guide-toc" aria-label="In this guide">
+          <p>In this guide</p>
+          <a href="#who-it-suits">1. Who it may suit</a>
+          <a href="#what-to-check">2. What to check before buying</a>
+          <a href="#compare-options">3. What to compare</a>
+        </nav>
+        <section id="who-it-suits"><h2>Who it may suit</h2><p>{product.forWho}</p></section>
+        <section id="what-to-check"><h2>What to check before buying</h2><p>{comparisonNotes[product.slug]}</p><p className="verification-note">A retailer or manufacturer page is the final source for current specifications, availability, and terms.</p></section>
+        <section id="compare-options" className="shop-guide-compare">
+          <div><h2>What to compare</h2>{product.pros.map((item) => <p key={item}><Check size={16} />{item}</p>)}</div>
+          <div><h2>Keep in mind</h2>{product.cons.map((item) => <p key={item}><Check size={16} />{item}</p>)}</div>
+        </section>
+        <section className="shop-guide-alternatives"><p>OTHER DIRECTIONS TO COMPARE</p><h2>{product.alternatives.join(" / ")}</h2><span>Different approaches worth considering before deciding. The current merchant listing remains the final source for details.</span></section>
+      </article>
+      <SiteFooter />
+    </main>
+  );
 }
