@@ -34,6 +34,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
     <main>
       <SiteHeader />
       <article className="shop-guide product-story">
+        <nav className="product-breadcrumb" aria-label="Breadcrumb"><a href="/#stories">Current notes</a><span>/</span><span>{category?.name}</span></nav>
         <header className="shop-guide-header">
           <p>{category?.name} / {product.name}</p>
           <h1>{product.storyTitle}</h1>
@@ -41,23 +42,23 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         </header>
         <figure className="shop-guide-figure">
           <img className={product.imageMode === "product" ? "product-image" : undefined} src={product.image} alt={product.imageAlt} decoding="async" />
-          <figcaption>{product.imageMode === "product" ? "Editorial product presentation based on current brand or retailer imagery. Use the linked page to confirm the current color, package contents, and details." : "Independent editorial image, not manufacturer product photography. Use the linked brand or retailer page to confirm the current design, color, and details."}</figcaption>
+          <figcaption>{product.imageMode === "product" ? "Editorial presentation based on current brand or retailer imagery; check the listing for the exact color and package contents." : "Independent editorial image; check the listing for the current design and color."}</figcaption>
         </figure>
         <div className="shop-guide-commerce">
           <div className="disclosure">{isAffiliateLink ? `Affiliate disclosure: ${site.affiliateNotice}` : "Link note: the product button below goes directly to the brand or retailer and is not currently an affiliate link."}</div>
           {hasProductLink && <div className="purchase-panel"><a href={productUrl ?? "#"} target="_blank" rel={isAffiliateLink ? "sponsored nofollow noopener" : "noopener noreferrer"}>{isAffiliateLink ? "View current price" : "View product details"}</a><span>Source: <a href={product.sourceUrl ?? "#"} target="_blank" rel="noopener noreferrer">{product.sourceName}</a>. Price, availability, color, and specifications can change.</span></div>}
         </div>
         <section id="who-it-suits"><h2>Why it made the list</h2><p>{product.forWho}</p></section>
-        <section id="what-to-check"><h2>What I would check before ordering</h2><p>{comparisonNotes[product.slug]}</p><p className="verification-note">The current brand or retailer page remains the final source for specifications, availability, and terms.</p></section>
+        <section id="what-to-check"><h2>What I would check before ordering</h2><p>{comparisonNotes[product.slug]}</p></section>
         <section id="compare-options" className="shop-guide-compare">
-          <div><h2>What the listing tells us</h2>{product.pros.map((item) => <p key={item}><Check size={16} />{item}</p>)}</div>
+          <div><h2>What the listing confirms</h2>{product.pros.map((item) => <p key={item}><Check size={16} />{item}</p>)}</div>
           <div><h2>What gives me pause</h2>{product.cons.map((item) => <p key={item}><Check size={16} />{item}</p>)}</div>
         </section>
-        <section className="shop-guide-alternatives"><p>IF THIS IS NOT QUITE IT</p><h2>{product.alternatives.join(" / ")}</h2><span>Three other directions worth comparing before deciding. The current merchant listing remains the final source for product details.</span></section>
+        <section className="shop-guide-alternatives"><p>IF THIS IS NOT QUITE IT</p><h2>{product.alternatives.join(" / ")}</h2><span>A few other directions I would compare before deciding.</span></section>
         <section className="product-continue">
-          <div><p>CONTINUE SHOPPING</p><h2>More pieces to compare.</h2></div>
+          <div><p>KEEP READING</p><h2>More notes from the shortlist.</h2></div>
           <div className="product-continue-grid">{relatedProducts.map((item) => <a href={`/posts/${item.slug}`} key={item.slug}><span>{getCategory(item.category)?.name}</span><h3>{item.storyTitle}</h3><p>{item.summary}</p></a>)}</div>
-          <a className="product-category-return" href="/#stories">Back to all stories</a>
+          <a className="product-category-return" href="/#stories">Back to the current notes</a>
         </section>
       </article>
       <SiteFooter />

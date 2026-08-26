@@ -4,7 +4,7 @@ export const site = {
   market: "English / United States",
   description: "An independent journal about women's clothing, bags, shoes, beauty, and travel style.",
   affiliate: { network: "Independent partner links", defaultUrl: null as string | null },
-  affiliateNotice: "VogueGlows may use affiliate links. When you make a qualifying purchase through a published link, we may earn a commission at no extra cost to you."
+  affiliateNotice: "Some links on VogueGlows are affiliate links. If you make a qualifying purchase, I may earn a commission at no extra cost to you."
 };
 
 export const categories = [

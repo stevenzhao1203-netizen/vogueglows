@@ -4,10 +4,10 @@ type InfoSection = { heading: string; paragraphs: string[] };
 type InfoPage = { eyebrow: string; title: string; intro: string; sections: InfoSection[] };
 
 const pages: Record<string, InfoPage> = {
-  about: { eyebrow: "VOGUEGLOWS", title: "About VogueGlows", intro: "A journal for the decisions that sit between wanting something and bringing it home.", sections: [
-    { heading: "What we cover", paragraphs: ["The focus is women's fashion and the things around it: clothing, shoes, handbags, small accessories, skincare, makeup tools, and travel pieces that need to work in real routines."] },
-    { heading: "How the site is organised", paragraphs: ["The Journal holds the longer notes behind those decisions. The Edit is more direct: a place to compare fit, material, care, return terms, and the everyday details a product page can make easy to miss."] },
-    { heading: "What a product profile is", paragraphs: ["A product profile is not presented as a hands-on review. Each featured item links to a current manufacturer or retailer page, and an affiliate disclosure appears close to any qualifying link. The final details, including price and availability, always belong to the current listing."] }
+  about: { eyebrow: "VOGUEGLOWS", title: "About VogueGlows", intro: "This is where I keep the notes that sit between wanting something and deciding whether it belongs at home.", sections: [
+    { heading: "What I write about", paragraphs: ["I focus on women's clothing, shoes, handbags, beauty, personal audio, and travel pieces that need to work in real routines, not only in polished product photographs."] },
+    { heading: "How I choose a piece", paragraphs: ["I begin with something that catches my eye, then look past the styling. Fit, dimensions, materials, ingredients, care, return terms, and the details people tend to discover after ordering are what make a product worth writing about."] },
+    { heading: "What these notes are", paragraphs: ["These are researched shopping notes, not hands-on reviews unless I clearly say otherwise. I link to the current brand or retailer page, keep affiliate disclosures close to qualifying links, and leave changing details such as price and availability with the current listing."] }
   ] },
   contact: { eyebrow: "CONTACT", title: "Contact VogueGlows", intro: "For editorial questions, correction requests, or partnership enquiries, email admin@vogueglows.com.", sections: [
     { heading: "A useful message", paragraphs: ["For a correction, include the page URL, the statement you are querying, and a reliable source where possible. This makes it easier to review the point properly."] },
