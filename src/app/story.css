@@ -135,6 +135,15 @@
   overflow-wrap: break-word;
 }
 
+.story-index-heading > span {
+  display: block;
+  max-width: 620px;
+  margin-top: 14px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.7;
+}
+
 .story-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
