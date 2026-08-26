@@ -38,16 +38,16 @@
   position: relative;
   display: flex;
   min-height: min(680px, calc(100svh - 150px));
-  align-items: flex-end;
+  align-items: center;
   overflow: hidden;
-  background: var(--deep);
-  color: #fff;
+  background: #f7f4ee;
+  color: var(--ink);
 }
 
 .story-home-hero::after {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg, rgba(20, 27, 24, .72) 0%, rgba(20, 27, 24, .56) 30%, rgba(20, 27, 24, .2) 58%, rgba(20, 27, 24, 0) 78%);
+  background: linear-gradient(90deg, rgba(255, 253, 249, .98) 0%, rgba(255, 253, 249, .94) 30%, rgba(255, 253, 249, .7) 48%, rgba(255, 253, 249, .18) 68%, rgba(255, 253, 249, 0) 82%);
   content: "";
 }
 
@@ -57,6 +57,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: brightness(1.08) saturate(.92);
 }
 
 .story-home-hero > div {
@@ -64,8 +65,8 @@
   z-index: 1;
   width: 100%;
   min-width: 0;
-  max-width: 760px;
-  padding: 8vw 6vw;
+  max-width: 700px;
+  padding: clamp(64px, 8vw, 122px) 6vw;
 }
 
 .story-home-hero p,
@@ -87,7 +88,7 @@
 .story-home-hero span {
   display: block;
   max-width: 590px;
-  color: rgba(255, 255, 255, .88);
+  color: var(--muted);
   font-size: 16px;
   line-height: 1.7;
 }
@@ -107,7 +108,7 @@
 }
 
 .story-home-hero a {
-  color: #fff;
+  color: var(--deep);
 }
 
 .story-about a {
@@ -148,6 +149,19 @@
   aspect-ratio: 4 / 3;
   object-fit: cover;
   transition: transform .35s ease;
+}
+
+.story-card img.product-image {
+  padding: clamp(24px, 3vw, 44px);
+  background: #f3efe7;
+  object-fit: contain;
+}
+
+.shop-guide-figure img.product-image {
+  aspect-ratio: 4 / 3;
+  padding: clamp(28px, 5vw, 64px);
+  background: #f3efe7;
+  object-fit: contain;
 }
 
 .story-card p {
@@ -250,6 +264,14 @@
     min-height: 560px;
   }
 
+  .story-home-hero::after {
+    background: linear-gradient(0deg, rgba(255, 253, 249, .99) 0%, rgba(255, 253, 249, .94) 38%, rgba(255, 253, 249, .5) 61%, rgba(255, 253, 249, 0) 82%);
+  }
+
+  .story-home-hero > img {
+    object-position: 62% center;
+  }
+
   .story-home-hero > div {
     width: 100% !important;
     max-width: 100% !important;
@@ -264,7 +286,7 @@
   .story-home-hero > div > span {
     width: 100%;
     max-width: 100% !important;
-    color: rgba(255, 255, 255, .88);
+    color: var(--muted);
     font-size: 14px;
     white-space: normal;
     overflow-wrap: anywhere;

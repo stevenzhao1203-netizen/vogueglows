@@ -34,7 +34,7 @@ const pages: Record<string, InfoPage> = {
   "editorial-policy": { eyebrow: "OUR STANDARDS", title: "Editorial Policy", intro: "These principles guide how VogueGlows chooses topics, checks product information, and handles corrections.", sections: [
     { heading: "Selection and research", paragraphs: ["Topics begin with a practical decision in style or everyday life. Product pages may draw on manufacturer documentation, retailer listings, and other publicly available information. Direct experience is not implied unless it is clearly stated."] },
     { heading: "Editorial judgement and commerce", paragraphs: ["Affiliate links help support the site, but a commission does not change the reader's price or turn an unchecked claim into a fact. Merchant links are added only after the destination has been reviewed."] },
-    { heading: "Changing information", paragraphs: ["Prices, availability, specifications, and merchant terms are time-sensitive. Readers should confirm them with the seller before acting. Where a product listing has been checked, the page says so near the relevant link."] },
+    { heading: "Changing information", paragraphs: ["Prices, availability, specifications, and merchant terms can change. Each product story links to the source used for its factual details so readers can confirm the current listing before ordering."] },
     { heading: "Corrections", paragraphs: ["Specific correction requests are welcome at admin@vogueglows.com. Please include the page URL, the statement in question, and supporting information so the point can be reviewed."] }
   ] },
   "cookie-notice": { eyebrow: "LEGAL", title: "Cookie Notice", intro: "VogueGlows uses the technical storage needed to deliver a working website.", sections: [
