@@ -129,10 +129,53 @@ export const productSpotlights: Record<string, ProductSpotlight> = {
 };
 
 type ProductGuideSection = { heading: string; paragraphs: string[] };
-type ProductGuide = { introduction: string; sections: ProductGuideSection[]; conclusion: string };
+type ProductGuideFormat = "essay" | "notebook" | "routine" | "decision";
+type ProductGuide = {
+  format: ProductGuideFormat;
+  kicker: string;
+  title: string;
+  introduction: string;
+  sections: ProductGuideSection[];
+  conclusionLabel: string;
+  conclusion: string;
+};
 
 export const productGuides: Record<string, ProductGuide> = {
+  "everlane-oversized-blazer": {
+    format: "essay",
+    kicker: "WARDROBE NOTE",
+    title: "The oversized blazer question is really a layering question.",
+    introduction: "I am less interested in whether a blazer looks relaxed in a campaign image than in what happens when it meets the clothes already in a wardrobe. Everlane gives this one a roomy, menswear-inspired body, but also says it is cut closer through the arms. That contrast is the place to begin.",
+    sections: [
+      {
+        heading: "Roomy does not mean vague",
+        paragraphs: [
+          "Everlane lists an oversized fit and a 31-inch length in size 6. The brand also notes that the model sized up for an even looser look. I would not automatically follow that styling choice: the useful comparison is the garment chart against a blazer that already works through the shoulders, upper arms, and sleeves.",
+          "The closer-cut arms matter if the jacket needs to go over a button-down or knit. I would measure the thickest layer I expect to wear, then check whether the blazer still has enough ease to move without turning the shoulder line into a size experiment."
+        ]
+      },
+      {
+        heading: "The fabric changes the mood",
+        paragraphs: [
+          "The shell is currently listed as 60 percent TENCEL Lyocell and 40 percent cotton, with a 100 percent recycled-polyester lining. That suggests a different proposition from a crisp wool suiting jacket: lighter, softer, and more suited to polished everyday outfits than to a rigid formal uniform.",
+          "The care instructions allow a cold gentle machine wash followed by hang drying, or dry cleaning. I would still factor in pressing and storage. A long, soft blazer looks its best when the lapels and shoulders are allowed to keep their shape."
+        ]
+      },
+      {
+        heading: "My three-outfit test",
+        paragraphs: [
+          "Before ordering, I would name three outfits: jeans and a tee, trousers and a fine knit, then the dress or skirt combination that is hardest to finish. If the same length and shoulder line make sense with all three, the blazer has a plausible job rather than merely an attractive product page.",
+          "Flap pockets and an interior pocket add everyday usefulness, but proportion remains the deciding detail. At 31 inches in size 6, the hem may feel elegantly long on one person and simply too long on another."
+        ]
+      }
+    ],
+    conclusionLabel: "MY WARDROBE VERDICT",
+    conclusion: "I would shortlist it for someone who wants soft, long-line tailoring and already knows that an oversized jacket works with her proportions. The garment measurements and arm room deserve more attention than the word oversized."
+  },
   "gym-people-workout-tee": {
+    format: "notebook",
+    kicker: "FIT NOTES",
+    title: "The listing looks simple. The proportions are the real story.",
     introduction: "What makes this tee worth a closer look is not a dramatic technical claim. It is the combination of a loose body, side slits, and a longer uneven hem: ordinary details that can make a top easier to wear with leggings, bike shorts, or relaxed trousers. The listing presents it as both activewear and a casual layer, so the useful question is whether that shape fits the way you actually dress.",
     sections: [
       {
@@ -157,9 +200,13 @@ export const productGuides: Record<string, ProductGuide> = {
         ]
       }
     ],
-    conclusion: "My shortlist verdict: the silhouette is the reason to consider this tee. Check the exact garment measurements, fibre label, opacity, and return terms before treating it as either a workout staple or an everyday basic."
+    conclusionLabel: "WHERE I LAND",
+    conclusion: "The silhouette is the reason to consider this tee. Check the exact garment measurements, fibre label, opacity, and return terms before treating it as either a workout staple or an everyday basic."
   },
   "beakey-makeup-brushes": {
+    format: "routine",
+    kicker: "ROUTINE NOTES",
+    title: "A brush set earns its space one step at a time.",
     introduction: "A starter brush set is useful when it removes decisions rather than creating more clutter. BEAKEY's current 10+2 set groups five face brushes, five eye brushes, and two blending sponges in one purchase. That is enough variety to build a basic routine, but the value depends on whether those shapes match the products already on the shelf.",
     sections: [
       {
@@ -184,9 +231,13 @@ export const productGuides: Record<string, ProductGuide> = {
         ]
       }
     ],
-    conclusion: "My shortlist verdict: this is most credible as an entry or replacement kit, not as a promise of professional results. Count the shapes you will actually use and include cleaning time in the decision."
+    conclusionLabel: "THE PRACTICAL VERDICT",
+    conclusion: "This is most credible as an entry or replacement kit, not as a promise of professional results. Count the shapes you will actually use and include cleaning time in the decision."
   },
   "coolife-three-piece-luggage": {
+    format: "decision",
+    kicker: "PACKING AUDIT",
+    title: "Before buying a set, decide how many suitcases your life actually needs.",
     introduction: "The strongest argument for this COOLIFE set is not that three cases look coordinated. It is that the 20-, 24-, and 28-inch sizes cover three different packing jobs and then nest together at home. That only becomes good value when a household will genuinely use more than one size.",
     sections: [
       {
@@ -211,7 +262,163 @@ export const productGuides: Record<string, ProductGuide> = {
         ]
       }
     ],
-    conclusion: "My shortlist verdict: the set is a practical proposition for families or mixed trip lengths, especially when nested storage matters. It is excessive for anyone who will use only one case, and the airline size rules remain the buyer's final check."
+    conclusionLabel: "THE SHORT ANSWER",
+    conclusion: "The set is a practical proposition for families or mixed trip lengths, especially when nested storage matters. It is excessive for anyone who will use only one case, and the airline size rules remain the buyer's final check."
+  },
+  "coach-brooklyn-shoulder-bag-28": {
+    format: "decision",
+    kicker: "BAG AUDIT",
+    title: "Start with what goes inside, then look at the silhouette.",
+    introduction: "The Brooklyn 28 is appealing because very little interrupts its shape. That simplicity also means the buyer has to do more of the practical thinking: one open main compartment, one snap pocket, a magnetic top, and a fixed shoulder handle need to suit the way the bag will actually be used.",
+    sections: [
+      {
+        heading: "The kitchen-table capacity test",
+        paragraphs: [
+          "Coach lists the bag at 11 inches long, 11 inches high, and 3.25 inches wide. Those numbers become useful only after putting the daily contents on a table. I would begin with a phone, card case, keys, sunglasses, and the largest extra item, then compare that pile with the narrow 3.25-inch depth.",
+          "This is not the bag I would choose for a laptop, a large bottle, or a collection of pouches. It is more convincing as a compact shoulder bag whose height gives a little flexibility without turning it into a work tote."
+        ]
+      },
+      {
+        heading: "Easy access has a trade-off",
+        paragraphs: [
+          "The magnetic snap should make the top quick to open, while the interior snap pocket gives small valuables a more deliberate place. The other side of that ease is less enclosure than a zipper. Crowded public transport, air travel, and the habit of setting a bag on its side all make that distinction more important.",
+          "The listed 10.5-inch handle drop is another number worth recreating with a tape measure. A wide strap can spread weight well, but the drop determines whether the bag sits comfortably over a coat as well as a shirt."
+        ]
+      },
+      {
+        heading: "Natural grain leather will not stay untouched",
+        paragraphs: [
+          "Coach describes the material as natural grain leather with a softly textured character. I would expect the surface to develop signs of use rather than remain visually perfect. That is part of the appeal for someone who likes leather to look lived in, and a reason to pause for someone who wants a pristine finish.",
+          "Color can also change how visible rubbing, water spots, and transfer become. The current product page is the right place to confirm the exact color, care guidance, and return terms before choosing from an editorial image."
+        ]
+      }
+    ],
+    conclusionLabel: "WHO I THINK IT SUITS",
+    conclusion: "This makes sense for a compact daily carry and for someone who values a clean shape over internal organization. I would pass if a secure zip top, crossbody option, or workday capacity is non-negotiable."
+  },
+  "sam-edelman-bianka-slingback": {
+    format: "notebook",
+    kicker: "TRY-ON NOTES",
+    title: "A low heel can be versatile. A pointed slingback still needs a careful try-on.",
+    introduction: "The Bianka has the useful visual ingredients of a dress shoe without the height of a traditional pump: a pointed toe, a buckle slingback, and a heel listed at about 2.4 inches. That makes it easy to imagine with many outfits, but it does not make fit automatic.",
+    sections: [
+      {
+        heading: "The toe sets the usable length",
+        paragraphs: [
+          "A pointed toe extends the visual line of the foot, but some of that front length is shape rather than standing room. I would use the brand size guide, note whether the selected material is leather or a mixed upper, and avoid assuming that the usual size will feel identical across every Bianka color and finish.",
+          "The best first try is indoors, later in the day, with the hosiery or bare foot intended for the shoe. The question is not only whether the toes fit; it is whether the foot stays settled instead of sliding forward."
+        ]
+      },
+      {
+        heading: "A slingback has two fit points",
+        paragraphs: [
+          "The buckle can fine-tune the rear strap, but it cannot correct a shoe that is wrong through the forefoot. I would walk on a clean hard floor and check both: no pinching at the widest part of the foot, and no strap slipping when the heel lifts naturally.",
+          "Sam Edelman lists a synthetic insole on the current black-leather page. Cushioning and all-day comfort still cannot be inferred from the material list, which is why the current return conditions are part of the product, not an afterthought."
+        ]
+      },
+      {
+        heading: "Where the 2.4-inch heel earns its keep",
+        paragraphs: [
+          "The height is low enough to sit between a flat and a full pump. I can see the logic with cropped trousers, a midi skirt, or a simple dress where a loafer feels too grounded and a higher heel feels too formal.",
+          "I would be less persuaded if the wardrobe mostly needs shoes for long walking days or uneven streets. A modest heel changes the look, but the pointed front and open back still make this a dressed shoe rather than an all-purpose walking shoe."
+        ]
+      }
+    ],
+    conclusionLabel: "MY FIT-FIRST VIEW",
+    conclusion: "The Bianka is worth considering for its proportion, not because a kitten heel guarantees comfort. The right size, secure strap, indoor walk test, and return eligibility should decide whether it stays."
+  },
+  "shokz-openfit-2-plus": {
+    format: "decision",
+    kicker: "LISTENING DECISION",
+    title: "Choose these for awareness first. Everything else comes after.",
+    introduction: "OpenFit 2+ makes the clearest case for itself when the listener does not want to close off the room, pavement, or office. The open-ear design is the main decision. Dolby Audio, wireless charging, and long stated battery life are additions to that choice, not substitutes for it.",
+    sections: [
+      {
+        heading: "Where open-ear listening makes sense",
+        paragraphs: [
+          "Walking, desk work, household tasks, and lower-noise training are the obvious settings. The ear canal stays open, so voices, traffic, and other surroundings remain easier to notice. That is useful for awareness; it also means outside sound competes with the music.",
+          "I would not choose this design for loud flights or for someone whose priority is isolation. Raising the volume to overpower the environment defeats much of the reason to buy open-ear headphones in the first place."
+        ]
+      },
+      {
+        heading: "Battery claims need a real-life footnote",
+        paragraphs: [
+          "Shokz lists up to 11 hours from the earbuds and up to 48 hours with the charging case. The brand also notes that actual performance varies with volume, source, ambient noise, and use. Enabling Dolby Audio is stated to reduce battery life by roughly two hours.",
+          "The Plus model adds wireless charging, while the case can also charge by USB-C. That convenience matters most to someone who already keeps a wireless pad on the desk; it should not outweigh the basic fit and listening-style decision."
+        ]
+      },
+      {
+        heading: "Small details I would test during the return window",
+        paragraphs: [
+          "The earbuds combine physical buttons with touch controls, support multipoint connection to two devices, and are listed at 9.4 grams each. I would check ear-hook pressure, stability with glasses, voice-call quality in the usual room, and whether sound is audible to a nearby person at a normal volume.",
+          "The earbuds carry an IP55 rating for sweat and light rain, while the charging case is not waterproof. That is enough reason to keep the case away from a wet gym bag even when the earbuds themselves are used for exercise."
+        ]
+      }
+    ],
+    conclusionLabel: "THE DECISION IN ONE LINE",
+    conclusion: "A strong fit for everyday awareness and convenient charging; a poor substitute for noise-cancelling earbuds in loud environments. I would buy only after accepting that open design trade-off."
+  },
+  "ulike-air-10-ipl": {
+    format: "routine",
+    kicker: "DEVICE ROUTINE",
+    title: "Compatibility comes before convenience with an at-home IPL device.",
+    introduction: "The Air 10 product page leads with speed and cooling, but the most important part appears further down: IPL targets melanin, so skin tone and hair color determine whether the method is appropriate. I would settle that question before comparing modes, treatment time, or promotional results.",
+    sections: [
+      {
+        heading: "First: use the compatibility guidance",
+        paragraphs: [
+          "Ulike explains that lighter hair may contain too little melanin for effective treatment, while darker skin can absorb more energy and raise safety concerns. The current skin-tone and hair-color selector, safety instructions, contraindications, and manual should be read in full before purchase.",
+          "This is not a product category where a general recommendation can replace individual suitability. If the chart is unclear, a qualified medical professional is a better source than before-and-after marketing."
+        ]
+      },
+      {
+        heading: "Then: account for the preparation",
+        paragraphs: [
+          "The brand's instructions say to shave hair longer than 2 mm before treatment, select the appropriate mode, place the device flush against the skin to activate the contact sensor, and then begin. That preparation is part of every session and belongs in the time calculation.",
+          "The page lists Fast, Normal, High, and Super Hair Removal modes for different areas and hair types. More power is not automatically better; the current instructions should govern mode selection, especially on sensitive areas."
+        ]
+      },
+      {
+        heading: "Finally: decide whether the routine is realistic",
+        paragraphs: [
+          "AutoGlide is designed to cover larger areas with repeated flashes, and the sapphire contact cooling is intended to make the process more comfortable. Those features may reduce friction, but they do not remove the need for consistent sessions, careful coverage, and attention to skin response.",
+          "I would make room for the device, razor, protective accessories, and instructions together, and record which areas and settings were used. A repeatable routine is more credible than expecting a costly device to work simply because it is in the bathroom cabinet."
+        ]
+      }
+    ],
+    conclusionLabel: "MY SAFETY-FIRST VIEW",
+    conclusion: "The Air 10 is worth researching only after compatibility is established. The useful buying question is whether its modes and cooling make a suitable, repeated routine easier, not whether the fastest marketing claim sounds impressive."
+  },
+  "beauty-by-earth-self-tanner": {
+    format: "routine",
+    kicker: "APPLICATION NOTES",
+    title: "The believable route to an even tan starts before the bottle opens.",
+    introduction: "Beauty by Earth's shade guidance is more useful than a generic promise of glow. The brand asks shoppers to match the formula to natural skin tone, undertone, hair, eyes, and sun response, rather than choosing the depth they hope to become. That is the sensible starting point.",
+    sections: [
+      {
+        heading: "Match the formula to the skin you have",
+        paragraphs: [
+          "The current page separates guidance for lighter, medium-to-olive, and deeper skin tones and includes an undertone quiz. It also warns that too much DHA or building too quickly can turn the result orange. I would use the full shade guide rather than choosing from the tube image.",
+          "A patch test is still a prudent step with any new body product. The ingredient list and directions on the exact package received remain the final source, particularly for anyone with sensitive or reactive skin."
+        ]
+      },
+      {
+        heading: "Preparation is part of the finish",
+        paragraphs: [
+          "The brand recommends exfoliating first and avoiding oil-based scrubs that can leave a film. Its routine also advises waiting at least 24 hours after shaving before tanning. Those details explain why the same lotion can look even on one application and patchy on another.",
+          "Dry areas such as knees, elbows, ankles, and hands deserve restrained application. A mitt, brush, or gloves can help control distribution and keep the palms from taking on more color than the rest of the body."
+        ]
+      },
+      {
+        heading: "One thin coat is a better opening move",
+        paragraphs: [
+          "Beauty by Earth recommends starting with one thin, even coat and building gradually. I prefer that advice to chasing a dramatic first application: it leaves more room to see how the selected shade develops on an individual skin tone.",
+          "The practical cost is planning. Application, drying time, loose clothing, hand washing, and later fading all belong to the routine. Someone who dislikes preparation may be happier with a wash-off body tint or a gradual moisturizer."
+        ]
+      }
+    ],
+    conclusionLabel: "WHAT MATTERS MOST",
+    conclusion: "Shade matching and patient application matter more than the promise on the front of the bottle. I would consider this for someone willing to prepare carefully, begin lightly, and let the color build rather than rush."
   }
 };
 

@@ -413,7 +413,7 @@
 
 .product-deep-dive-sections > section {
   display: grid;
-  grid-template-columns: 64px minmax(0, 1fr);
+  grid-template-columns: 84px minmax(0, 1fr);
   gap: 24px;
   margin: 0 !important;
   padding: 34px 0;
@@ -422,7 +422,9 @@
 
 .product-deep-dive-sections > section > span {
   color: var(--blue);
-  font: 400 26px/1.1 Georgia, "Times New Roman", serif;
+  font: 700 10px/1.4 "DM Sans", Arial, sans-serif;
+  letter-spacing: .08em;
+  text-transform: uppercase;
 }
 
 .product-deep-dive-sections h2 {
@@ -448,9 +450,134 @@
   background: var(--sage);
 }
 
-.product-deep-dive-conclusion > h2 {
-  margin-bottom: 10px;
+.product-guide-essay .product-deep-dive-intro {
+  max-width: 690px;
+  padding-left: 26px;
+  border-left: 2px solid var(--blue);
+}
+
+.product-guide-essay .product-deep-dive-sections > section {
+  grid-template-columns: 110px minmax(0, 1fr);
+  padding: 42px 0;
+}
+
+.product-guide-essay .product-deep-dive-sections h2 {
   font-size: 28px !important;
+}
+
+.product-guide-essay .product-deep-dive-conclusion {
+  padding: 30px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: transparent;
+}
+
+.product-guide-essay .product-deep-dive-conclusion > span {
+  max-width: 690px;
+  color: var(--ink);
+  font: 400 20px/1.65 "Libre Baskerville", Georgia, serif;
+}
+
+.product-guide-notebook .product-deep-dive-intro {
+  max-width: none;
+  padding: 32px 36px;
+  background: #f4f1ea;
+}
+
+.product-guide-notebook .product-deep-dive-sections {
+  border-top: 0;
+}
+
+.product-guide-notebook .product-deep-dive-sections > section {
+  grid-template-columns: 1fr;
+  gap: 10px;
+  padding: 34px 18px;
+}
+
+.product-guide-notebook .product-deep-dive-sections > section:nth-child(even) {
+  padding-left: 54px;
+}
+
+.product-guide-notebook .product-deep-dive-sections h2 {
+  max-width: 610px;
+}
+
+.product-guide-notebook .product-deep-dive-sections p {
+  max-width: 690px;
+}
+
+.product-guide-notebook .product-deep-dive-conclusion {
+  border-left: 3px solid var(--blue);
+  background: #fff;
+}
+
+.product-guide-routine {
+  padding: 46px 34px 34px;
+  background: var(--sage);
+}
+
+.product-guide-routine .product-deep-dive-intro {
+  margin-bottom: 28px;
+}
+
+.product-guide-routine .product-deep-dive-sections {
+  border-top: 0;
+}
+
+.product-guide-routine .product-deep-dive-sections > section {
+  grid-template-columns: 74px minmax(0, 1fr);
+  padding: 30px 0;
+  border-color: rgba(38, 60, 52, .18);
+}
+
+.product-guide-routine .product-deep-dive-sections > section > span {
+  color: #4f7a5d;
+}
+
+.product-guide-routine .product-deep-dive-conclusion {
+  margin-top: 26px;
+  border: 1px solid rgba(38, 60, 52, .18);
+  background: var(--paper);
+}
+
+.product-guide-decision .product-deep-dive-sections {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border-top: 1px solid var(--line);
+  border-left: 1px solid var(--line);
+}
+
+.product-guide-decision .product-deep-dive-sections > section {
+  display: block;
+  padding: 30px;
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: #fff;
+}
+
+.product-guide-decision .product-deep-dive-sections > section:last-child {
+  grid-column: 1 / -1;
+}
+
+.product-guide-decision .product-deep-dive-sections > section > span {
+  display: block;
+  margin-bottom: 34px;
+}
+
+.product-guide-decision .product-deep-dive-sections h2 {
+  font-size: 23px !important;
+}
+
+.product-guide-decision .product-deep-dive-conclusion {
+  background: var(--deep);
+}
+
+.product-guide-decision .product-deep-dive-conclusion > p {
+  color: #bdcb9f;
+}
+
+.product-guide-decision .product-deep-dive-conclusion > span {
+  color: #f7f5ef;
 }
 
 @media (hover: hover) {
@@ -636,13 +763,13 @@
   }
 
   .product-deep-dive-sections > section {
-    grid-template-columns: 38px minmax(0, 1fr);
-    gap: 12px;
+    grid-template-columns: 1fr;
+    gap: 9px;
     padding: 27px 0;
   }
 
   .product-deep-dive-sections > section > span {
-    font-size: 21px;
+    font-size: 9px;
   }
 
   .product-deep-dive-sections h2 {
@@ -654,8 +781,54 @@
     padding: 25px 22px;
   }
 
-  .product-deep-dive-conclusion > h2 {
-    font-size: 25px !important;
+  .product-guide-essay .product-deep-dive-intro {
+    padding-left: 18px;
+  }
+
+  .product-guide-essay .product-deep-dive-sections > section,
+  .product-guide-routine .product-deep-dive-sections > section {
+    grid-template-columns: 1fr;
+  }
+
+  .product-guide-essay .product-deep-dive-sections > section {
+    padding: 32px 0;
+  }
+
+  .product-guide-essay .product-deep-dive-sections h2 {
+    font-size: 23px !important;
+  }
+
+  .product-guide-essay .product-deep-dive-conclusion > span {
+    font-size: 17px;
+  }
+
+  .product-guide-notebook .product-deep-dive-intro {
+    padding: 26px 22px;
+  }
+
+  .product-guide-notebook .product-deep-dive-sections > section,
+  .product-guide-notebook .product-deep-dive-sections > section:nth-child(even) {
+    padding: 28px 0;
+  }
+
+  .product-guide-routine {
+    padding: 34px 22px 24px;
+  }
+
+  .product-guide-decision .product-deep-dive-sections {
+    grid-template-columns: 1fr;
+  }
+
+  .product-guide-decision .product-deep-dive-sections > section:last-child {
+    grid-column: auto;
+  }
+
+  .product-guide-decision .product-deep-dive-sections > section {
+    padding: 25px 22px;
+  }
+
+  .product-guide-decision .product-deep-dive-sections > section > span {
+    margin-bottom: 18px;
   }
 }
 

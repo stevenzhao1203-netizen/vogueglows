@@ -31,6 +31,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   const isAffiliateLink = Boolean(product.affiliateUrl);
   const productUrl = product.affiliateUrl ?? product.sourceUrl;
   const hasProductLink = Boolean(productUrl && product.sourceUrl);
+  const guideSectionLabel = guide?.format === "routine" ? "STEP" : guide?.format === "decision" ? "QUESTION" : guide?.format === "notebook" ? "NOTE" : "PART";
 
   return (
     <main>
@@ -60,17 +61,17 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             <div><h3>Before you buy</h3>{spotlight.cautions.map((item) => <p key={item}><Minus size={15} />{item}</p>)}</div>
           </div>
         </section>}
-        <section id="who-it-suits"><h2>Why it made the list</h2><p>{product.forWho}</p></section>
-        <section id="what-to-check"><h2>What I would check before ordering</h2><p>{comparisonNotes[product.slug]}</p></section>
-        {guide && <section className="product-deep-dive" aria-label={`${product.name} closer look`}>
+        {!guide && <section id="who-it-suits"><h2>Why it made the list</h2><p>{product.forWho}</p></section>}
+        {!guide && <section id="what-to-check"><h2>What I would check before ordering</h2><p>{comparisonNotes[product.slug]}</p></section>}
+        {guide && <section className={`product-deep-dive product-guide-${guide.format}`} aria-label={`${product.name} editorial notes`}>
           <header className="product-deep-dive-intro">
-            <p>CLOSER LOOK</p>
-            <h2>The details that would shape my decision.</h2>
+            <p>{guide.kicker}</p>
+            <h2>{guide.title}</h2>
             <span>{guide.introduction}</span>
           </header>
           <div className="product-deep-dive-sections">
             {guide.sections.map((section, index) => <section key={section.heading}>
-              <span>{String(index + 1).padStart(2, "0")}</span>
+              <span>{guideSectionLabel} {String(index + 1).padStart(2, "0")}</span>
               <div>
                 <h2>{section.heading}</h2>
                 {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
@@ -78,12 +79,11 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
             </section>)}
           </div>
           <aside className="product-deep-dive-conclusion">
-            <p>MY READING OF THE LISTING</p>
-            <h2>The bottom line</h2>
+            <p>{guide.conclusionLabel}</p>
             <span>{guide.conclusion}</span>
           </aside>
         </section>}
-        {!spotlight && <section id="compare-options" className="shop-guide-compare">
+        {!spotlight && !guide && <section id="compare-options" className="shop-guide-compare">
           <div><h2>What the listing confirms</h2>{product.pros.map((item) => <p key={item}><Check size={16} />{item}</p>)}</div>
           <div><h2>What gives me pause</h2>{product.cons.map((item) => <p key={item}><Check size={16} />{item}</p>)}</div>
         </section>}
