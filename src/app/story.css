@@ -10,6 +10,11 @@
   font-size: 14px !important;
 }
 
+.site-header-simple .brand-mark {
+  align-self: center;
+  transform: translateY(2px);
+}
+
 .trend-bar {
   display: flex;
   height: 34px;
