@@ -56,6 +56,42 @@ export const homepageProducts = homepageProductSlugs
 type ProductSpotlight = { highlights: string[]; cautions: string[] };
 
 export const productSpotlights: Record<string, ProductSpotlight> = {
+  "gym-people-workout-tee": {
+    highlights: [
+      "The listing describes a relaxed, mid-length workout tee with side slits",
+      "A crew neck and raglan-style sleeves keep the shape simple",
+      "The current listing offers sizes from XS through XXL",
+      "The longer uneven hem is intended to work with leggings or shorts"
+    ],
+    cautions: [
+      "Fabric composition and measurements should be rechecked for the selected color and size",
+      "Drape, opacity, and hip coverage cannot be established from listing photos alone"
+    ]
+  },
+  "beakey-makeup-brushes": {
+    highlights: [
+      "The set contains five face brushes, five eye brushes, and two blending sponges",
+      "The brand lists shapes for foundation, contour, powder, blush, highlight, and eye makeup",
+      "The two sponges can be used dry for powder or damp for liquid and cream formulas",
+      "Buying the set avoids choosing every first brush separately"
+    ],
+    cautions: [
+      "A 12-piece kit is not economical if only a few shapes fit the routine",
+      "The tools still require regular washing, reshaping, and thorough air-drying"
+    ]
+  },
+  "coolife-three-piece-luggage": {
+    highlights: [
+      "The listing includes 20-, 24-, and 28-inch hard-shell cases",
+      "The cases nest inside one another when they are not in use",
+      "The listing specifies 360-degree spinner wheels and a telescoping handle",
+      "Interior mesh storage, elastic straps, and a TSA-accepted combination lock are listed"
+    ],
+    cautions: [
+      "The 20-inch case still needs to be checked against the airline's current carry-on limit",
+      "ABS keeps the cases relatively light, but shell stiffness and wheel life cannot be judged online"
+    ]
+  },
   "shokz-openfit-2-plus": {
     highlights: [
       "Open-ear design leaves the ear canal open for situational awareness",
@@ -92,6 +128,93 @@ export const productSpotlights: Record<string, ProductSpotlight> = {
   }
 };
 
+type ProductGuideSection = { heading: string; paragraphs: string[] };
+type ProductGuide = { introduction: string; sections: ProductGuideSection[]; conclusion: string };
+
+export const productGuides: Record<string, ProductGuide> = {
+  "gym-people-workout-tee": {
+    introduction: "What makes this tee worth a closer look is not a dramatic technical claim. It is the combination of a loose body, side slits, and a longer uneven hem: ordinary details that can make a top easier to wear with leggings, bike shorts, or relaxed trousers. The listing presents it as both activewear and a casual layer, so the useful question is whether that shape fits the way you actually dress.",
+    sections: [
+      {
+        heading: "Start with length, not the styled photo",
+        paragraphs: [
+          "The current listing describes a mid-length, loose-fitting shirt with coverage through the stomach and hips. That sounds straightforward, but the result depends on torso length, hip measurement, and the rise of the bottoms worn underneath. I would compare the listed measurements with a tee that already falls at the right point rather than choosing from the model image alone.",
+          "The side slits are the detail I would inspect next. They can help a longer top move more freely and sit without pulling across the hips, but their height also affects coverage. The front and back hem positions matter just as much as the letter size on the label."
+        ]
+      },
+      {
+        heading: "The fabric description needs a second check",
+        paragraphs: [
+          "The merchant information describes the fabric as lightweight, soft, breathable, and stretchy. Those words are useful as a starting point, not a substitute for the current fibre label. Marketplace listings can change across colors or production runs, so I would confirm the composition and care instructions shown for the exact option in the cart.",
+          "Nothing on a screen can settle opacity, cling, or how quickly the cloth dries after a workout. A sensible first try is indoors, with the sports bra and bottoms you expect to wear, while the return window is still open."
+        ]
+      },
+      {
+        heading: "Who may get the most use from it",
+        paragraphs: [
+          "This shape makes the most sense for someone who prefers a relaxed gym top over a fitted performance tee and wants enough length to move between a walk, a light workout, and the rest of the day. The crew neck and short raglan-style sleeves keep it visually simple, while the slits stop the longer body from reading like a straight tunic.",
+          "It is less convincing for someone who wants compression, a cropped proportion, verified sweat-wicking performance, or a close fit that stays fixed during high-impact exercise. Those are different jobs and deserve a different top."
+        ]
+      }
+    ],
+    conclusion: "My shortlist verdict: the silhouette is the reason to consider this tee. Check the exact garment measurements, fibre label, opacity, and return terms before treating it as either a workout staple or an everyday basic."
+  },
+  "beakey-makeup-brushes": {
+    introduction: "A starter brush set is useful when it removes decisions rather than creating more clutter. BEAKEY's current 10+2 set groups five face brushes, five eye brushes, and two blending sponges in one purchase. That is enough variety to build a basic routine, but the value depends on whether those shapes match the products already on the shelf.",
+    sections: [
+      {
+        heading: "What is actually in the set",
+        paragraphs: [
+          "The brand lists face brushes for foundation, contour, powder, highlight, bronzer, and blush work, alongside smaller shapes for blending shadow, placing color near the lash line, concealing, and defining brows or liner. Several jobs overlap, which is normal in a general-purpose kit: one brush can often handle more than the name printed in a guide.",
+          "The two sponges add a different finish rather than simply repeating the brushes. BEAKEY says they may be used dry with powder and damp with liquid or cream formulas. A beginner does not need to use every tool immediately; the practical approach is to identify the four or five shapes that serve the routine first."
+        ]
+      },
+      {
+        heading: "The hidden cost is cleaning and drying",
+        paragraphs: [
+          "More tools also mean more upkeep. The brand advises rinsing brush bristles with lukewarm water, using a gentle soap or brush cleanser, reshaping them, and laying them flat with the bristles over the edge while they dry. The sponges need cleanser, repeated rinsing, and open-air drying as well.",
+          "That routine matters because damp tools packed into a closed makeup bag are not convenient, however complete the set looks in a product photo. Before buying, I would make sure there is a clean place to dry them and enough time to wash the most-used pieces regularly."
+        ]
+      },
+      {
+        heading: "A sensible first kit, with limits",
+        paragraphs: [
+          "The appeal is breadth at the beginning: complexion, cheek, and eye tools arrive together, so there is no need to understand every brush category before starting. Synthetic fibres also make sense for a routine that moves between liquid, cream, and powder products.",
+          "The limitation is equally simple. A large set cannot guarantee that every handle, density, or head shape will feel right. Someone who already knows the exact two brushes they replace every year may be better served by buying those individually."
+        ]
+      }
+    ],
+    conclusion: "My shortlist verdict: this is most credible as an entry or replacement kit, not as a promise of professional results. Count the shapes you will actually use and include cleaning time in the decision."
+  },
+  "coolife-three-piece-luggage": {
+    introduction: "The strongest argument for this COOLIFE set is not that three cases look coordinated. It is that the 20-, 24-, and 28-inch sizes cover three different packing jobs and then nest together at home. That only becomes good value when a household will genuinely use more than one size.",
+    sections: [
+      {
+        heading: "Three sizes solve three different trips",
+        paragraphs: [
+          "The listing identifies a 20-inch case, a 24-inch checked case, and a 28-inch checked case. The smallest is presented as suitable for carry-on use, but airline limits vary by carrier, route, and fare. I would compare the current external dimensions with the exact airline allowance before relying on that description.",
+          "The larger cases make more sense for longer trips, shared family packing, or households where different travelers need luggage at the same time. For a solo traveler who repeatedly takes the same short trip, one carefully chosen carry-on may be the more useful purchase."
+        ]
+      },
+      {
+        heading: "What the construction list tells us",
+        paragraphs: [
+          "The product information specifies 100 percent ABS hard shells, multidirectional spinner wheels, push-button telescoping handles, and a TSA-accepted combination lock. Inside, the listing describes a mesh zip pocket and elastic organization. These are concrete features to compare, but they do not amount to a durability test.",
+          "ABS is commonly chosen to keep a hard-shell case relatively light and affordable. It can still scuff, flex, or show handling marks, and wheel or zipper longevity cannot be predicted from the material name. I would inspect those moving parts closely as soon as the set arrives."
+        ]
+      },
+      {
+        heading: "Storage and handling are part of the price",
+        paragraphs: [
+          "Nesting the smaller cases inside the largest reduces the footprint between trips, which is one of the set's clearest practical advantages. Even nested, however, the 28-inch shell still needs a real home in a closet, storage room, or under a high rail. Measuring that space before ordering is more useful than admiring the color choice.",
+          "On arrival, I would roll every case on a hard floor, extend and retract each handle, inspect the shell and zipper track, and set the combination lock according to the current instructions. Those checks do not prove long-term performance, but they can reveal an immediate defect while the retailer's return period is active."
+        ]
+      }
+    ],
+    conclusion: "My shortlist verdict: the set is a practical proposition for families or mixed trip lengths, especially when nested storage matters. It is excessive for anyone who will use only one case, and the airline size rules remain the buyer's final check."
+  }
+};
+
 export const articles = [
   { slug: "how-to-compare-a-tailored-blazer", category: "Women's Clothing", title: "Before you buy a blazer, start with the clothes underneath it", excerpt: "Shoulders, sleeve length, lining, and the return policy tell you far more than a polished campaign image.", image: "/images/vg-featured-tailored-blazer.webp", sections: ["Begin with the layers you already wear", "Measure a jacket that feels right", "Read the fabric and return details"], content: ["A blazer can look perfect on a product page and still feel wrong over the knitwear or shirts you actually wear. Start with the few outfits it has to serve: perhaps a fine knit, a tee, a button-down, or a dress. That list makes the right shoulder shape, length, and amount of room much easier to picture.", "Pull out a jacket that already fits well and compare the listing's measurements with it. Look at shoulder width, sleeve length, back length, and whether the cut is fitted, straight, or oversized. Styling photos are nice, but they cannot show where a shoulder seam will land on you or whether the sleeves will work with your usual layers.", "Fabric deserves the same attention as the cut. A broad description such as wool blend, suiting, or crepe leaves a lot unsaid, so look for the fibre mix, lining, care instructions, delivery window, and return conditions. Those are the details that decide whether a blazer gets worn or stays on the hanger."] },
   { slug: "the-five-minute-beauty-routine", category: "Beauty & Skincare", title: "A five-minute beauty routine has room for only a few things", excerpt: "The best short routine is not a race. It is a familiar set of steps that does not ask you to think too hard before leaving the house.", image: "/images/vg-featured-beauty-routine.webp", sections: ["Let each step do one job", "Change one thing at a time", "Keep the shelf easy to use"], content: ["A short routine gets easier when every product has a clear job. Cleanse, moisturize, protect, then add something targeted only when it earns a place. Two products that promise the same thing usually make a morning longer without making it better.", "When you try a new formula, leave the rest of the routine alone for a while. You will notice more: how it layers, whether it fits your schedule, and whether you reach for it once the novelty has worn off. It also makes it easier to tell what your skin likes.", "Keep the products you use most where you can reach them without searching. Packaging that opens easily and directions that fit your actual mornings are not glamorous details, but they are often why a routine lasts. A few steps you repeat beat a crowded shelf you avoid."] },
@@ -101,4 +224,5 @@ export const articles = [
 export const getCategory = (slug: string) => categories.find((item) => item.slug === slug);
 export const getProduct = (slug: string) => products.find((item) => item.slug === slug);
 export const getProductSpotlight = (slug: string) => productSpotlights[slug];
+export const getProductGuide = (slug: string) => productGuides[slug];
 export const getArticle = (slug: string) => articles.find((item) => item.slug === slug);

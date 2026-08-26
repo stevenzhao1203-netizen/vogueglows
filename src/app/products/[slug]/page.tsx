@@ -1,5 +1,5 @@
 import { Check, Minus, Plus } from "lucide-react";
-import { getCategory, getProduct, getProductSpotlight, products, site } from "@/data/catalog";
+import { getCategory, getProduct, getProductGuide, getProductSpotlight, products, site } from "@/data/catalog";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 
 const comparisonNotes: Record<string, string> = {
@@ -23,6 +23,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
 
   const category = getCategory(product.category);
   const spotlight = getProductSpotlight(product.slug);
+  const guide = getProductGuide(product.slug);
   const relatedProducts = [
     ...products.filter((item) => item.category === product.category && item.slug !== product.slug),
     ...products.filter((item) => item.category !== product.category)
@@ -61,6 +62,27 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         </section>}
         <section id="who-it-suits"><h2>Why it made the list</h2><p>{product.forWho}</p></section>
         <section id="what-to-check"><h2>What I would check before ordering</h2><p>{comparisonNotes[product.slug]}</p></section>
+        {guide && <section className="product-deep-dive" aria-label={`${product.name} closer look`}>
+          <header className="product-deep-dive-intro">
+            <p>CLOSER LOOK</p>
+            <h2>The details that would shape my decision.</h2>
+            <span>{guide.introduction}</span>
+          </header>
+          <div className="product-deep-dive-sections">
+            {guide.sections.map((section, index) => <section key={section.heading}>
+              <span>{String(index + 1).padStart(2, "0")}</span>
+              <div>
+                <h2>{section.heading}</h2>
+                {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+              </div>
+            </section>)}
+          </div>
+          <aside className="product-deep-dive-conclusion">
+            <p>MY READING OF THE LISTING</p>
+            <h2>The bottom line</h2>
+            <span>{guide.conclusion}</span>
+          </aside>
+        </section>}
         {!spotlight && <section id="compare-options" className="shop-guide-compare">
           <div><h2>What the listing confirms</h2>{product.pros.map((item) => <p key={item}><Check size={16} />{item}</p>)}</div>
           <div><h2>What gives me pause</h2>{product.cons.map((item) => <p key={item}><Check size={16} />{item}</p>)}</div>
