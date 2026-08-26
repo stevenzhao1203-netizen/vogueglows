@@ -7,7 +7,7 @@ const comparisonNotes: Record<string, string> = {
   "gym-people-workout-tee": "Check the current size chart, fabric composition, care instructions, side-slit placement, and return window. Compare the stated length with a tee you already like before deciding.",
   "coach-brooklyn-shoulder-bag-28": "Lay out the things you carry most often, then compare that group with the listed dimensions, handle drop, open interior, and magnetic closure. The shape matters less than whether your daily essentials fit without stacking awkwardly.",
   "sam-edelman-bianka-slingback": "Check the heel height, pointed toe, buckle adjustment, available width, and return terms. Try the shoes indoors on the surface and at the time of day that best reflects how you will wear them.",
-  "cerave-daily-moisturizing-lotion": "Read the current ingredient list and directions on the official page and the packaging you receive. Introduce it in a way that makes individual skin response easier to notice, especially if your routine already contains active ingredients.",
+  "shokz-openfit-2-plus": "Start with where you expect to listen. Compare the open-ear fit, physical controls, battery and charging details, water-resistance guidance, and return window with the amount of isolation you actually need.",
   "beakey-makeup-brushes": "Lay out the included brush shapes against the steps you actually use. A complete set earns its place when the face brushes, eye brushes, and sponges replace separate purchases instead of adding clutter.",
   "ulike-air-10-ipl": "Start with Ulike's current skin-tone and hair-color chart, then read the safety instructions and treatment schedule in full. An IPL device should not be chosen from before-and-after marketing alone.",
   "beauty-by-earth-self-tanner": "Choose between the Light and Medium formulas from the brand's undertone guidance, then check the preparation and application directions. A mitt, a thin first layer, and careful work around hands and joints matter more than rushing toward a darker result.",
@@ -41,7 +41,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         </header>
         <figure className="shop-guide-figure">
           <img className={product.imageMode === "product" ? "product-image" : undefined} src={product.image} alt={product.imageAlt} decoding="async" />
-          <figcaption>{product.imageMode === "product" ? "Product image supplied by the brand or retailer. Use the linked page to confirm the current color, package contents, and details." : "Independent editorial image, not manufacturer product photography. Use the linked brand or retailer page to confirm the current design, color, and details."}</figcaption>
+          <figcaption>{product.imageMode === "product" ? "Editorial product presentation based on current brand or retailer imagery. Use the linked page to confirm the current color, package contents, and details." : "Independent editorial image, not manufacturer product photography. Use the linked brand or retailer page to confirm the current design, color, and details."}</figcaption>
         </figure>
         <div className="shop-guide-commerce">
           <div className="disclosure">{isAffiliateLink ? `Affiliate disclosure: ${site.affiliateNotice}` : "Link note: the product button below goes directly to the brand or retailer and is not currently an affiliate link."}</div>

@@ -7,6 +7,7 @@
 
 .site-header-simple nav {
   justify-content: flex-end;
+  font-size: 14px !important;
 }
 
 .trend-bar {
@@ -28,7 +29,7 @@
   padding: 0 42px;
   background: var(--deep);
   clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 14px 100%, 0 50%);
-  font-size: 8px;
+  font-size: 10px;
   font-weight: 700;
   letter-spacing: 1px;
   text-transform: uppercase;
@@ -37,7 +38,7 @@
 .story-home-hero {
   position: relative;
   display: flex;
-  min-height: min(680px, calc(100svh - 150px));
+  min-height: min(540px, calc(100svh - 150px));
   align-items: center;
   overflow: hidden;
   background: #f7f4ee;
@@ -65,8 +66,8 @@
   z-index: 1;
   width: 100%;
   min-width: 0;
-  max-width: 700px;
-  padding: clamp(64px, 8vw, 122px) 6vw;
+  max-width: 650px;
+  padding: 46px 6vw;
 }
 
 .story-home-hero p,
@@ -74,14 +75,14 @@
 .story-card p,
 .story-about > p {
   margin-bottom: 12px;
-  font-size: 10px;
+  font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
 }
 
 .story-home-hero h1 {
   margin-bottom: 18px;
-  font-size: clamp(40px, 5vw, 70px);
+  font-size: clamp(40px, 4.4vw, 62px);
   line-height: 1.12;
 }
 
@@ -89,7 +90,7 @@
   display: block;
   max-width: 590px;
   color: var(--muted);
-  font-size: 16px;
+  font-size: 17px;
   line-height: 1.7;
 }
 
@@ -102,7 +103,7 @@
   margin-top: 24px;
   padding-bottom: 5px;
   border-bottom: 1px solid currentColor;
-  font-size: 11px;
+  font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
 }
@@ -152,16 +153,14 @@
 }
 
 .story-card img.product-image {
-  padding: clamp(24px, 3vw, 44px);
   background: #f3efe7;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .shop-guide-figure img.product-image {
   aspect-ratio: 4 / 3;
-  padding: clamp(28px, 5vw, 64px);
   background: #f3efe7;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 .story-card p {
@@ -178,7 +177,7 @@
 .story-card > span {
   display: block;
   color: var(--muted);
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.65;
 }
 
@@ -187,7 +186,7 @@
   gap: 6px;
   align-items: center;
   margin-top: 16px;
-  font-size: 10px;
+  font-size: 11px;
   text-transform: uppercase;
 }
 
@@ -246,7 +245,7 @@
     width: calc(100% - 44px);
     height: 25px;
     padding: 0 24px;
-    font-size: 7px;
+    font-size: 8px;
   }
 
   .site-header.site-header-simple {
@@ -261,7 +260,7 @@
   }
 
   .story-home-hero {
-    min-height: 560px;
+    min-height: 500px;
   }
 
   .story-home-hero::after {
@@ -275,7 +274,7 @@
   .story-home-hero > div {
     width: 100% !important;
     max-width: 100% !important;
-    padding: 54px 22px !important;
+    padding: 38px 22px !important;
   }
 
   .story-home-hero h1 {
