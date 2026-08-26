@@ -65,10 +65,10 @@
 .story-home-hero > div {
   position: relative;
   z-index: 1;
-  width: 100%;
+  width: min(760px, 56vw);
   min-width: 0;
-  max-width: 650px;
-  padding: 46px 6vw;
+  max-width: none;
+  padding: 46px 3vw 46px 6vw;
 }
 
 .story-home-hero p,
@@ -82,9 +82,10 @@
 }
 
 .story-home-hero h1 {
+  max-width: 610px;
   margin-bottom: 18px;
-  font-size: clamp(40px, 4.4vw, 62px);
-  line-height: 1.12;
+  font-size: clamp(42px, 3.7vw, 54px);
+  line-height: 1.1;
 }
 
 .story-home-hero span {
@@ -356,6 +357,15 @@
 }
 
 @media (max-width: 900px) {
+  .story-home-hero > div {
+    width: min(620px, 68vw);
+    padding: 42px 4vw 42px 6vw;
+  }
+
+  .story-home-hero h1 {
+    font-size: clamp(40px, 5.4vw, 48px);
+  }
+
   .story-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -414,8 +424,9 @@
   }
 
   .story-home-hero h1 {
-    max-width: 330px;
-    font-size: 39px;
+    max-width: 345px;
+    font-size: 36px;
+    line-height: 1.12;
   }
 
   .story-home-hero > div > span {
