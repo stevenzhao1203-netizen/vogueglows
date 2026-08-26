@@ -35,6 +35,45 @@ export const products: Product[] = [
   { slug: "coolife-three-piece-luggage", category: "travel-style", name: "COOLIFE three-piece luggage set", storyTitle: "Three suitcase sizes make sense only if you will use all three", summary: "This set pairs 20-, 24-, and 28-inch hard-shell cases. The real comparison is storage space, airline rules, and whether a full set suits the way you travel.", image: "/images/vg-product-coolife-editorial.webp", imageAlt: "Three yellow COOLIFE hard-shell suitcases arranged on a warm gray studio background", imageMode: "product", forWho: "I put this set at the end of the list because it solves a specific problem: keeping several suitcase sizes in one household. It is less convincing for a solo traveler who usually reaches for the same carry-on every time.", pros: ["The Amazon listing groups 20-, 24-, and 28-inch ABS hard-shell cases", "The listing describes nesting storage, spinner wheels, telescoping handles, and TSA-accepted locks"], cons: ["Airline size and weight limits still need to be checked for every trip", "A three-piece set takes more room and money than buying the one size used most often"], alternatives: ["Single carry-on", "Soft-sided checked case", "Carry-on and weekender pair"], sourceUrl: "https://www.amazon.com/dp/B07T53X2VL", sourceName: "Amazon US product listing", affiliateUrl: "https://pboost.me/f41dkekOc" }
 ];
 
+type ProductSpotlight = { highlights: string[]; cautions: string[] };
+
+export const productSpotlights: Record<string, ProductSpotlight> = {
+  "shokz-openfit-2-plus": {
+    highlights: [
+      "Open-ear design leaves the ear canal open for situational awareness",
+      "Up to 11 hours per charge and 48 hours with the charging case",
+      "Qi wireless charging with both physical buttons and touch controls",
+      "IP55-rated earbuds for sweat and light rain"
+    ],
+    cautions: [
+      "The open construction does not isolate loud surroundings",
+      "The charging case is not waterproof, and a wireless charger is not included"
+    ]
+  },
+  "ulike-air-10-ipl": {
+    highlights: [
+      "Four treatment modes: Fast, Normal, High, and Super Hair Removal",
+      "AutoGlide and a contact sensor support treatment over larger areas",
+      "The official compatibility chart covers both skin tone and hair color"
+    ],
+    cautions: [
+      "IPL is least effective on blonde, gray, and red hair",
+      "The brand says it is not suitable for very dark skin; read the full safety guidance before use"
+    ]
+  },
+  "beauty-by-earth-self-tanner": {
+    highlights: [
+      "Light and Medium options are matched to natural skin tone and undertone",
+      "The brand recommends starting with one thin coat and building gradually",
+      "A mitt, brush, or gloves can help produce a more even application"
+    ],
+    cautions: [
+      "Color depth varies with skin tone, preparation, and application",
+      "Bare-hand application can stain palms and joints, and a DHA scent can develop"
+    ]
+  }
+};
+
 export const articles = [
   { slug: "how-to-compare-a-tailored-blazer", category: "Women's Clothing", title: "Before you buy a blazer, start with the clothes underneath it", excerpt: "Shoulders, sleeve length, lining, and the return policy tell you far more than a polished campaign image.", image: "/images/vg-featured-tailored-blazer.webp", sections: ["Begin with the layers you already wear", "Measure a jacket that feels right", "Read the fabric and return details"], content: ["A blazer can look perfect on a product page and still feel wrong over the knitwear or shirts you actually wear. Start with the few outfits it has to serve: perhaps a fine knit, a tee, a button-down, or a dress. That list makes the right shoulder shape, length, and amount of room much easier to picture.", "Pull out a jacket that already fits well and compare the listing's measurements with it. Look at shoulder width, sleeve length, back length, and whether the cut is fitted, straight, or oversized. Styling photos are nice, but they cannot show where a shoulder seam will land on you or whether the sleeves will work with your usual layers.", "Fabric deserves the same attention as the cut. A broad description such as wool blend, suiting, or crepe leaves a lot unsaid, so look for the fibre mix, lining, care instructions, delivery window, and return conditions. Those are the details that decide whether a blazer gets worn or stays on the hanger."] },
   { slug: "the-five-minute-beauty-routine", category: "Beauty & Skincare", title: "A five-minute beauty routine has room for only a few things", excerpt: "The best short routine is not a race. It is a familiar set of steps that does not ask you to think too hard before leaving the house.", image: "/images/vg-featured-beauty-routine.webp", sections: ["Let each step do one job", "Change one thing at a time", "Keep the shelf easy to use"], content: ["A short routine gets easier when every product has a clear job. Cleanse, moisturize, protect, then add something targeted only when it earns a place. Two products that promise the same thing usually make a morning longer without making it better.", "When you try a new formula, leave the rest of the routine alone for a while. You will notice more: how it layers, whether it fits your schedule, and whether you reach for it once the novelty has worn off. It also makes it easier to tell what your skin likes.", "Keep the products you use most where you can reach them without searching. Packaging that opens easily and directions that fit your actual mornings are not glamorous details, but they are often why a routine lasts. A few steps you repeat beat a crowded shelf you avoid."] },
@@ -43,4 +82,5 @@ export const articles = [
 
 export const getCategory = (slug: string) => categories.find((item) => item.slug === slug);
 export const getProduct = (slug: string) => products.find((item) => item.slug === slug);
+export const getProductSpotlight = (slug: string) => productSpotlights[slug];
 export const getArticle = (slug: string) => articles.find((item) => item.slug === slug);

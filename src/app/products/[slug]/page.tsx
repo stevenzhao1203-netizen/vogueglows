@@ -1,5 +1,5 @@
-import { Check } from "lucide-react";
-import { getCategory, getProduct, products, site } from "@/data/catalog";
+import { Check, Minus, Plus } from "lucide-react";
+import { getCategory, getProduct, getProductSpotlight, products, site } from "@/data/catalog";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 
 const comparisonNotes: Record<string, string> = {
@@ -22,6 +22,7 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
   if (!product) return null;
 
   const category = getCategory(product.category);
+  const spotlight = getProductSpotlight(product.slug);
   const relatedProducts = [
     ...products.filter((item) => item.category === product.category && item.slug !== product.slug),
     ...products.filter((item) => item.category !== product.category)
@@ -46,14 +47,24 @@ export default async function ProductPage({ params }: { params: Promise<{ slug: 
         </figure>
         <div className="shop-guide-commerce">
           <div className="disclosure">{isAffiliateLink ? `Affiliate disclosure: ${site.affiliateNotice}` : "Link note: the product button below goes directly to the brand or retailer and is not currently an affiliate link."}</div>
-          {hasProductLink && <div className="purchase-panel"><a href={productUrl ?? "#"} target="_blank" rel={isAffiliateLink ? "sponsored nofollow noopener" : "noopener noreferrer"}>{isAffiliateLink ? "View current price" : "View product details"}</a><span>Source: <a href={product.sourceUrl ?? "#"} target="_blank" rel="noopener noreferrer">{product.sourceName}</a>. Price, availability, color, and specifications can change.</span></div>}
+          {hasProductLink && !spotlight && <div className="purchase-panel"><a href={productUrl ?? "#"} target="_blank" rel={isAffiliateLink ? "sponsored nofollow noopener" : "noopener noreferrer"}>{isAffiliateLink ? "View current price" : "View product details"}</a><span>Source: <a href={product.sourceUrl ?? "#"} target="_blank" rel="noopener noreferrer">{product.sourceName}</a>. Price, availability, color, and specifications can change.</span></div>}
         </div>
+        {spotlight && hasProductLink && <section className="product-spotlight" aria-label={`${product.name} quick take`}>
+          <div className="spotlight-overview">
+            <img src={product.image} alt="" loading="lazy" decoding="async" />
+            <div className="spotlight-copy"><p>SELECTED QUICK TAKE</p><h2>{product.name}</h2><span>Price and availability are shown on the current merchant page.</span><a href={productUrl ?? "#"} target="_blank" rel={isAffiliateLink ? "sponsored nofollow noopener" : "noopener noreferrer"}>{isAffiliateLink ? "Check current price" : "View product details"}</a><small>Facts checked against <a href={product.sourceUrl ?? "#"} target="_blank" rel="noopener noreferrer">{product.sourceName}</a>.</small></div>
+          </div>
+          <div className="spotlight-facts">
+            <div><h3>Why it stands out</h3>{spotlight.highlights.map((item) => <p key={item}><Plus size={15} />{item}</p>)}</div>
+            <div><h3>Before you buy</h3>{spotlight.cautions.map((item) => <p key={item}><Minus size={15} />{item}</p>)}</div>
+          </div>
+        </section>}
         <section id="who-it-suits"><h2>Why it made the list</h2><p>{product.forWho}</p></section>
         <section id="what-to-check"><h2>What I would check before ordering</h2><p>{comparisonNotes[product.slug]}</p></section>
-        <section id="compare-options" className="shop-guide-compare">
+        {!spotlight && <section id="compare-options" className="shop-guide-compare">
           <div><h2>What the listing confirms</h2>{product.pros.map((item) => <p key={item}><Check size={16} />{item}</p>)}</div>
           <div><h2>What gives me pause</h2>{product.cons.map((item) => <p key={item}><Check size={16} />{item}</p>)}</div>
-        </section>
+        </section>}
         <section className="shop-guide-alternatives"><p>IF THIS IS NOT QUITE IT</p><h2>{product.alternatives.join(" / ")}</h2><span>A few other directions I would compare before deciding.</span></section>
         <section className="product-continue">
           <div><p>KEEP READING</p><h2>More notes from the shortlist.</h2></div>
