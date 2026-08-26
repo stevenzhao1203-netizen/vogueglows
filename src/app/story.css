@@ -1,28 +1,54 @@
 .site-header-simple {
   display: flex;
   grid-template-columns: 1fr auto;
-  min-height: 76px;
+  min-height: 78px;
   justify-content: space-between;
-  padding-right: max(5vw, calc((100vw - 1440px) / 2));
-  padding-left: max(5vw, calc((100vw - 1440px) / 2));
 }
 
 .site-header-simple nav {
   justify-content: flex-end;
 }
 
+.trend-bar {
+  display: flex;
+  height: 30px;
+  align-items: flex-start;
+  justify-content: center;
+  overflow: hidden;
+  background: #fff;
+  color: #fff;
+}
+
+.trend-bar span {
+  display: flex;
+  width: min(720px, 76vw);
+  height: 28px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 42px;
+  background: var(--deep);
+  clip-path: polygon(14px 0, calc(100% - 14px) 0, 100% 50%, calc(100% - 14px) 100%, 14px 100%, 0 50%);
+  font-size: 8px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
 .story-home-hero {
   position: relative;
   display: flex;
-  min-height: min(590px, calc(100svh - 120px));
-  align-items: stretch;
+  min-height: min(680px, calc(100svh - 150px));
+  align-items: flex-end;
   overflow: hidden;
-  background: #f2f0e9;
-  color: var(--ink);
+  background: var(--deep);
+  color: #fff;
 }
 
 .story-home-hero::after {
-  content: none;
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(20, 27, 24, .72) 0%, rgba(20, 27, 24, .56) 30%, rgba(20, 27, 24, .2) 58%, rgba(20, 27, 24, 0) 78%);
+  content: "";
 }
 
 .story-home-hero > img {
@@ -36,14 +62,10 @@
 .story-home-hero > div {
   position: relative;
   z-index: 1;
-  display: flex;
-  width: min(46vw, 700px);
+  width: 100%;
   min-width: 0;
-  max-width: none;
-  flex-direction: column;
-  justify-content: center;
-  padding: 64px 6vw;
-  background: rgba(255, 253, 248, .92);
+  max-width: 760px;
+  padding: 8vw 6vw;
 }
 
 .story-home-hero p,
@@ -58,15 +80,15 @@
 
 .story-home-hero h1 {
   margin-bottom: 18px;
-  font-size: clamp(38px, 4vw, 58px);
-  line-height: 1.14;
+  font-size: clamp(40px, 5vw, 70px);
+  line-height: 1.12;
 }
 
 .story-home-hero span {
   display: block;
-  max-width: 500px;
-  color: var(--muted);
-  font-size: 15px;
+  max-width: 590px;
+  color: rgba(255, 255, 255, .88);
+  font-size: 16px;
   line-height: 1.7;
 }
 
@@ -79,29 +101,34 @@
   margin-top: 24px;
   padding-bottom: 5px;
   border-bottom: 1px solid currentColor;
-  color: var(--deep);
   font-size: 11px;
   font-weight: 700;
   text-transform: uppercase;
 }
 
+.story-home-hero a {
+  color: #fff;
+}
+
+.story-about a {
+  color: var(--deep);
+}
+
 .story-index {
   max-width: 1320px;
   margin: auto;
-  padding: 64px 4vw 92px;
+  padding: 82px 4vw 100px;
 }
 
 .story-index-heading {
   min-width: 0;
-  margin-bottom: 28px;
-  padding-bottom: 21px;
-  border-bottom: 1px solid var(--line);
+  margin-bottom: 34px;
 }
 
 .story-index-heading h2 {
   max-width: 100%;
   margin: 0;
-  font-size: clamp(28px, 3vw, 42px);
+  font-size: clamp(30px, 3.5vw, 48px);
   overflow-wrap: break-word;
 }
 
@@ -191,10 +218,6 @@
 }
 
 @media (max-width: 900px) {
-  .story-home-hero > div {
-    width: min(58vw, 590px);
-  }
-
   .story-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -202,7 +225,14 @@
 
 @media (max-width: 560px) {
   .trend-bar {
+    height: 27px;
+  }
+
+  .trend-bar span {
+    width: calc(100% - 44px);
     height: 25px;
+    padding: 0 24px;
+    font-size: 7px;
   }
 
   .site-header.site-header-simple {
@@ -217,26 +247,24 @@
   }
 
   .story-home-hero {
-    min-height: 610px;
+    min-height: 560px;
   }
 
   .story-home-hero > div {
     width: 100% !important;
     max-width: 100% !important;
-    align-self: flex-end;
-    justify-content: flex-end;
-    padding: 34px 22px 38px !important;
-    background: rgba(255, 253, 248, .9);
+    padding: 54px 22px !important;
   }
 
   .story-home-hero h1 {
     max-width: 330px;
-    font-size: 36px;
+    font-size: 39px;
   }
 
   .story-home-hero > div > span {
     width: 100%;
     max-width: 100% !important;
+    color: rgba(255, 255, 255, .88);
     font-size: 14px;
     white-space: normal;
     overflow-wrap: anywhere;
