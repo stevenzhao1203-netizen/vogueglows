@@ -1,10 +1,8 @@
 import { ArrowRight } from "lucide-react";
-import { getCategory, products } from "@/data/catalog";
+import { getCategory, homepageProducts } from "@/data/catalog";
 import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 
 export default function HomePage() {
-  const featuredProducts = products.slice(0, 9);
-
   return <main>
     <div className="trend-bar"><span>Independent notes on style, beauty, and useful things</span></div>
     <SiteHeader active="home" />
@@ -14,7 +12,7 @@ export default function HomePage() {
     </section>
     <section className="story-index" id="stories">
       <div className="story-index-heading"><p>2026 running shortlist</p><h2>Pieces I would look at more closely.</h2><span>I add new notes and revisit earlier ones as the year moves on.</span></div>
-      <div className="story-grid">{featuredProducts.map((product) => <a className="story-card" href={`/posts/${product.slug}`} key={product.slug}><img className={product.imageMode === "product" ? "product-image" : undefined} src={product.image} alt={product.imageAlt} loading="lazy" decoding="async" /><p>{getCategory(product.category)?.name}</p><h3>{product.storyTitle}</h3><span>{product.summary}</span><b>Read my notes <ArrowRight size={14} /></b></a>)}</div>
+      <div className="story-grid">{homepageProducts.map((product) => <a className="story-card" href={`/posts/${product.slug}`} key={product.slug}><img className={product.imageMode === "product" ? "product-image" : undefined} src={product.image} alt={product.imageAlt} loading="lazy" decoding="async" /><p>{getCategory(product.category)?.name}</p><h3>{product.storyTitle}</h3><span>{product.summary}</span><b>Read my notes <ArrowRight size={14} /></b></a>)}</div>
     </section>
     <section className="story-about"><p>About this journal</p><h2>A place to slow down before adding something to the cart.</h2><span>VogueGlows is where I collect clothes, bags, beauty products, and travel pieces that seem worth a closer look. I have not personally tested every item here, so I say what drew me in, note the details I could confirm, and link to the current brand or retailer page.</span><a href="/info/about">How I choose what to include <ArrowRight size={14} /></a></section>
     <SiteFooter />

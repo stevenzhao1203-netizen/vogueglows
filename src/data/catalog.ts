@@ -35,6 +35,24 @@ export const products: Product[] = [
   { slug: "coolife-three-piece-luggage", category: "travel-style", name: "COOLIFE three-piece luggage set", storyTitle: "Three suitcase sizes make sense only if you will use all three", summary: "This set pairs 20-, 24-, and 28-inch hard-shell cases. The real comparison is storage space, airline rules, and whether a full set suits the way you travel.", image: "/images/vg-product-coolife-editorial.webp", imageAlt: "Three yellow COOLIFE hard-shell suitcases arranged on a warm gray studio background", imageMode: "product", forWho: "I put this set at the end of the list because it solves a specific problem: keeping several suitcase sizes in one household. It is less convincing for a solo traveler who usually reaches for the same carry-on every time.", pros: ["The Amazon listing groups 20-, 24-, and 28-inch ABS hard-shell cases", "The listing describes nesting storage, spinner wheels, telescoping handles, and TSA-accepted locks"], cons: ["Airline size and weight limits still need to be checked for every trip", "A three-piece set takes more room and money than buying the one size used most often"], alternatives: ["Single carry-on", "Soft-sided checked case", "Carry-on and weekender pair"], sourceUrl: "https://www.amazon.com/dp/B07T53X2VL", sourceName: "Amazon US product listing", affiliateUrl: "https://pboost.me/f41dkekOc" }
 ];
 
+// The homepage is an editorial sequence: Amazon-linked pieces lead, while
+// adjacent cards still move across clothing, beauty, travel, and accessories.
+export const homepageProductSlugs = [
+  "gym-people-workout-tee",
+  "beakey-makeup-brushes",
+  "coolife-three-piece-luggage",
+  "coach-brooklyn-shoulder-bag-28",
+  "sam-edelman-bianka-slingback",
+  "shokz-openfit-2-plus",
+  "everlane-oversized-blazer",
+  "ulike-air-10-ipl",
+  "beauty-by-earth-self-tanner"
+];
+
+export const homepageProducts = homepageProductSlugs
+  .map((slug) => products.find((product) => product.slug === slug))
+  .filter((product): product is Product => Boolean(product));
+
 type ProductSpotlight = { highlights: string[]; cautions: string[] };
 
 export const productSpotlights: Record<string, ProductSpotlight> = {
